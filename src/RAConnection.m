@@ -8,7 +8,7 @@
 
 @implementation RAConnection
 
-- (RAConnection*)once {
+- (RAConnection *)once {
     oneShot = YES;
     return self;
 }
@@ -20,11 +20,12 @@
 @end
 
 @implementation RAConnection(package)
-- (id)initWithBlock:(id)newblock atPriority:(int)newpriority onReactor:(RAReactor*)newreactor {
-    if (!(self = [super init])) return nil;
-    block = [newblock copy];
-    priority = newpriority;
-    reactor = newreactor;
+- (id)initWithBlock:(id)newBlock atPriority:(int)newPriority onReactor:(RAReactor *)newReactor {
+    if ((self = [super init])) {
+        block = [newBlock copy];
+        priority = newPriority;
+        reactor = newReactor;
+    }
     return self;
 }
 @end

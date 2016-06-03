@@ -7,7 +7,7 @@
 #define RA_IS_CONNECTED(connection) (connection->reactor != nil)
 
 @interface RAReactor (Protected)
-- (RAConnection*)connectConnection:(RAConnection*)connection;
-- (RAConnection*)prepareForEmission;
+- (RAConnection *)connectConnection:(RAConnection *)connection;
+- (RAConnection *)prepareForEmission;
 - (void)finishEmission;
 @end

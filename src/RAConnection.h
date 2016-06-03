@@ -10,16 +10,24 @@
 @interface RAConnection : NSObject {
 @package
     BOOL oneShot;
-    RAConnection* next;
+    RAConnection *next;
     id block;
     int priority;
-    __weak RAReactor* reactor;
+    __weak RAReactor *reactor;
 }
 
 /**
  * Makes this connection one-shot. After the next notification, it will automatically disconnect.
+ *
+ * <p><em>NOTE:</em> if you are dispatching signals in a multithreaded environment, it is
+ * possible for your connected listener to be notified before this call has a chance to mark it
+ * as one-shot. Thus you could receive multiple notifications. If you require this to be
+ * avoided, you must synchronize on the signal/value/etc. on which you are adding a
+ * listener:</p>
+ *
+ * @return this RAConnection instance, for chaining
  */
-- (RAConnection*)once;
+- (RAConnection *)once;
 
 /**
  * Disconnects this connection from the signal. Subsequent emissions won't be passed on to the

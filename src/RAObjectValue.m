@@ -12,15 +12,19 @@
 }
 
 - (id)initWithValue:(id)value {
-    if (!(self = [super init])) return nil;
-    _value = value;
+    if ((self = [super init])) {
+        _value = value;
+    }
     return self;
 }
 
 - (id)value { return _value; }
 
 - (void)setValue:(id)value {
-    if (value == _value) return;
+    if (value == _value) {
+        return;
+    }
+
     _value = value;
     [self dispatchEvent:_value];
 }

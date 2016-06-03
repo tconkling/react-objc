@@ -12,25 +12,27 @@
     for (RAConnection *cur = [self prepareForEmission]; cur != nil; cur = cur->next) {
         if (RA_IS_CONNECTED(cur)) {
             ((RAIntSlot)cur->block)(event);
-            if (cur->oneShot) [cur disconnect];
+            if (cur->oneShot) {
+                [cur disconnect];
+            }
         }
     }
     [self finishEmission];
 }
 
-- (RAConnection*)connectSlot:(RAIntSlot)block {
+- (RAConnection *)connectSlot:(RAIntSlot)block {
     return [self withPriority:RA_DEFAULT_PRIORITY connectSlot:block];
 }
 
-- (RAConnection*)withPriority:(int)priority connectSlot:(RAIntSlot)block {
+- (RAConnection *)withPriority:(int)priority connectSlot:(RAIntSlot)block {
     return [self connectConnection:[[RAConnection alloc] initWithBlock:block atPriority:priority onReactor:self]];
 }
 
-- (RAConnection*)connectUnit:(RAUnitBlock)block {
+- (RAConnection *)connectUnit:(RAUnitBlock)block {
     return [self withPriority:RA_DEFAULT_PRIORITY connectUnit:block];
 }
 
-- (RAConnection*)withPriority:(int)priority connectUnit:(RAUnitBlock)block {
+- (RAConnection *)withPriority:(int)priority connectUnit:(RAUnitBlock)block {
     return [self withPriority:priority connectSlot:^(int event) { block(); }];
 }
 @end

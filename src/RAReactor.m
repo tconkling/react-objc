@@ -132,7 +132,7 @@ static void insertConn (RAConnection *conn,  RAConnection *head) {
 
 @implementation RAReactor (Protected)
 
-- (RAConnection *)connectConnection:(RAConnection*)connection {
+- (RAConnection *)connectConnection:(RAConnection *)connection {
     @synchronized (self) {
         if (self.isEmitting) {
             [_pending insertAction:^{

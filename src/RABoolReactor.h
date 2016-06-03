@@ -7,9 +7,9 @@
 @interface RABoolReactor : RAReactor
 /** @name Connection */
 
-/** Connects the given block to receieve emissions from this signal at the default priority.  */
-- (RAConnection*)connectSlot:(RABoolSlot)block;
+/** Connects the given block to receive emissions from this signal at the default priority.  */
+- (RAConnection *)connectSlot:(RABoolSlot)block;
 
 /** Connects the given block at the given priority.  */
-- (RAConnection*)withPriority:(int)priority connectSlot:(RABoolSlot)block;
+- (RAConnection *)withPriority:(int)priority connectSlot:(RABoolSlot)block;
 @end
