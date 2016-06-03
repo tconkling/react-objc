@@ -29,7 +29,20 @@
 		1C098EB8C2C09E490D460916 /* RAConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0987B551FF01049D3C89C9 /* RAConnection.m */; };
 		1C098F3C8D6ABF28AF8130CC /* RADoubleSignal.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0988531773D8C3629449D8 /* RADoubleSignal.m */; };
 		1C098F422F4395362C97A170 /* RAStringValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0983326A0AF954C8A50540 /* RAStringValue.m */; };
+		22EC51E31D01075D00A63237 /* libreact-objc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C098BDF6A7075893FF42E21 /* libreact-objc.a */; };
+		22EC51EE1D01077800A63237 /* RASignalTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 22EC51EB1D01077800A63237 /* RASignalTest.m */; };
+		22EC51EF1D01077800A63237 /* RAUnitSignalTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 22EC51ED1D01077800A63237 /* RAUnitSignalTest.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		22EC51E41D01075D00A63237 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1C098849208EB06EEC83611B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1C098A7E6D20DD4F801DC7F1;
+			remoteInfo = "react-objc";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		1C0989ADB94C56DB171D6248 /* CopyFiles */ = {
@@ -45,6 +58,7 @@
 
 /* Begin PBXFileReference section */
 		1C0980452EC368D4DBD32314 /* RABoolValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RABoolValue.h; sourceTree = "<group>"; };
+		1C09811E0EA7564EA65F9D37 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		1C098146E4C5D9578D80F067 /* RABoolSignal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RABoolSignal.m; sourceTree = "<group>"; };
 		1C09818E88CCB81FED9484A1 /* RAStringReactor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAStringReactor.h; sourceTree = "<group>"; };
 		1C098265D0B436EE27BBD21A /* RAStringReactor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAStringReactor.m; sourceTree = "<group>"; };
@@ -99,6 +113,9 @@
 		1C098F704038DE5EF452AD1E /* RAObjectReactor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAObjectReactor.h; sourceTree = "<group>"; };
 		1C098FAFFD9A668F9F0F650A /* RAFloatReactor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAFloatReactor.m; sourceTree = "<group>"; };
 		1C098FCAF1263E8BCE4FADDD /* RAReactor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAReactor.m; sourceTree = "<group>"; };
+		22EC51DE1D01075D00A63237 /* react-tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "react-tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		22EC51EB1D01077800A63237 /* RASignalTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RASignalTest.m; sourceTree = "<group>"; };
+		22EC51ED1D01077800A63237 /* RAUnitSignalTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAUnitSignalTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +123,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		22EC51DB1D01075D00A63237 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22EC51E31D01075D00A63237 /* libreact-objc.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,6 +201,7 @@
 		1C0988912F34F6271AC84AFF = {
 			isa = PBXGroup;
 			children = (
+				22EC51E91D01077800A63237 /* test */,
 				1C098AC6891CB7C597280475 /* Products */,
 				1C09860EF9E30A99062868FD /* src */,
 			);
@@ -185,8 +211,19 @@
 			isa = PBXGroup;
 			children = (
 				1C098BDF6A7075893FF42E21 /* libreact-objc.a */,
+				22EC51DE1D01075D00A63237 /* react-tests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		22EC51E91D01077800A63237 /* test */ = {
+			isa = PBXGroup;
+			children = (
+				22EC51EB1D01077800A63237 /* RASignalTest.m */,
+				22EC51ED1D01077800A63237 /* RAUnitSignalTest.m */,
+				1C09811E0EA7564EA65F9D37 /* Info.plist */,
+			);
+			path = test;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,6 +246,24 @@
 			productReference = 1C098BDF6A7075893FF42E21 /* libreact-objc.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		22EC51DD1D01075D00A63237 /* react-tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 22EC51E81D01075D00A63237 /* Build configuration list for PBXNativeTarget "react-tests" */;
+			buildPhases = (
+				22EC51DA1D01075D00A63237 /* Sources */,
+				22EC51DB1D01075D00A63237 /* Frameworks */,
+				22EC51DC1D01075D00A63237 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				22EC51E51D01075D00A63237 /* PBXTargetDependency */,
+			);
+			name = "react-tests";
+			productName = "react-tests";
+			productReference = 22EC51DE1D01075D00A63237 /* react-tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -216,6 +271,11 @@
 			isa = PBXProject;
 			attributes = {
 				ORGANIZATIONNAME = "Tim Conkling";
+				TargetAttributes = {
+					22EC51DD1D01075D00A63237 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
 			};
 			buildConfigurationList = 1C098187F0E9DC781754BF92 /* Build configuration list for PBXProject "react-objc" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -230,9 +290,20 @@
 			projectRoot = "";
 			targets = (
 				1C098A7E6D20DD4F801DC7F1 /* react-objc */,
+				22EC51DD1D01075D00A63237 /* react-tests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		22EC51DC1D01075D00A63237 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1C098A3C324BE81D1BC7815D /* Sources */ = {
@@ -264,7 +335,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		22EC51DA1D01075D00A63237 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22EC51EE1D01077800A63237 /* RASignalTest.m in Sources */,
+				22EC51EF1D01077800A63237 /* RAUnitSignalTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		22EC51E51D01075D00A63237 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1C098A7E6D20DD4F801DC7F1 /* react-objc */;
+			targetProxy = 22EC51E41D01075D00A63237 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		1C098059112D589E0BD85812 /* Release */ = {
@@ -367,6 +455,26 @@
 			};
 			name = Debug;
 		};
+		22EC51E61D01075D00A63237 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = test/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "timconkling.react-tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		22EC51E71D01075D00A63237 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = test/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "timconkling.react-tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -377,12 +485,22 @@
 				1C098059112D589E0BD85812 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1C098187F0E9DC781754BF92 /* Build configuration list for PBXProject "react-objc" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1C098B2A7B7A5E03CC6D43D5 /* Debug */,
 				1C0988FDDE5BA0727D1F7CCB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		22EC51E81D01075D00A63237 /* Build configuration list for PBXNativeTarget "react-tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22EC51E61D01075D00A63237 /* Debug */,
+				22EC51E71D01075D00A63237 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
