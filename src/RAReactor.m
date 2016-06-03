@@ -6,6 +6,11 @@
 #import "RAReactor+Protected.h"
 #import "RAConnection.h"
 
+#define RAISE_ABSTRACT_EXCEPTION()                                                  \
+    @throw [NSException exceptionWithName:NSInternalInconsistencyException          \
+        reason:[NSString stringWithFormat:@"You must override %@ in a subclass",    \
+        NSStringFromSelector(_cmd)] userInfo:nil]
+
 @interface PostDispatchAction : NSObject {
 @public
     RAUnitBlock action;
@@ -37,7 +42,7 @@
 }
 @end
 
-static void insertConn(RAConnection *conn,  RAConnection *head) {
+static void insertConn (RAConnection *conn,  RAConnection *head) {
     if (head->next && head->next->priority >= conn->priority) insertConn(conn, head->next);
     else {
         conn->next = head->next;
@@ -46,6 +51,10 @@ static void insertConn(RAConnection *conn,  RAConnection *head) {
 }
 
 @implementation RAReactor
+
+- (BOOL)isEmitting {
+    return (_pending != nil);
+}
 
 - (void)insertConn:(RAConnection *)conn {
     @synchronized (self) {
@@ -84,7 +93,7 @@ static void insertConn(RAConnection *conn,  RAConnection *head) {
             // mark the connection as disconnected by nilling out the reactor reference
             conn->reactor = nil;
 
-            if (_pending != nil) {
+            if (self.isEmitting) {
                 [_pending insertAction:^{
                     [self removeConn:conn];
                 }];
@@ -101,7 +110,7 @@ static void insertConn(RAConnection *conn,  RAConnection *head) {
             cur->reactor = nil;
         }
 
-        if (_pending != nil) {
+        if (self.isEmitting) {
             [_pending insertAction:^{
                 self->_head = nil;
             }];
@@ -112,15 +121,11 @@ static void insertConn(RAConnection *conn,  RAConnection *head) {
 }
 
 - (RAConnection *)connectUnit:(RAUnitBlock)block {
-    @throw [NSException exceptionWithName:NSInternalInconsistencyException
-        reason:[NSString stringWithFormat:@"You must override %@ in a subclass",
-        NSStringFromSelector(_cmd)] userInfo:nil];
+    RAISE_ABSTRACT_EXCEPTION();
 }
 
 - (RAConnection *)withPriority:(int)priority connectUnit:(RAUnitBlock)block {
-    @throw [NSException exceptionWithName:NSInternalInconsistencyException
-        reason:[NSString stringWithFormat:@"You must override %@ in a subclass",
-        NSStringFromSelector(_cmd)] userInfo:nil];
+    RAISE_ABSTRACT_EXCEPTION();
 }
 
 @end
@@ -129,7 +134,7 @@ static void insertConn(RAConnection *conn,  RAConnection *head) {
 
 - (RAConnection *)connectConnection:(RAConnection*)connection {
     @synchronized (self) {
-        if (_pending != nil) {
+        if (self.isEmitting) {
             [_pending insertAction:^{
                 // ensure the connection hasn't already been disconnected
                 if (RA_IS_CONNECTED(connection)) {
@@ -145,7 +150,7 @@ static void insertConn(RAConnection *conn,  RAConnection *head) {
 }
 - (RAConnection *)prepareForEmission {
     @synchronized (self) {
-        NSAssert(_pending == nil, @"Asked to emit while emission in progress");
+        NSAssert(!self.isEmitting, @"Asked to emit while emission in progress");
         _pending = [[PostDispatchAction alloc] initWithAction:^{
             // Intentionally empty
         }];
@@ -155,6 +160,7 @@ static void insertConn(RAConnection *conn,  RAConnection *head) {
 
 - (void)finishEmission {
     @synchronized (self) {
+        NSAssert(self.isEmitting, @"Emission not in progress");
         for (; _pending != nil; _pending = _pending->next) {
             _pending->action();
         }

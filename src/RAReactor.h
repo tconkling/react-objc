@@ -12,14 +12,14 @@
 @interface RAReactor : NSObject
 
 /** Keeps the given connection from receiving further emissions. */
-- (void)disconnect:(RAConnection*)conn;
+- (void)disconnect:(RAConnection *)conn;
 
 /** Disconnects all connections. */
 - (void)disconnectAll;
 
 /** Connects the given unit at the default priority.  */
-- (RAConnection*)connectUnit:(RAUnitBlock)block;
+- (RAConnection *)connectUnit:(RAUnitBlock)block;
 
 /** Connects the given unit at the given priority.  */
-- (RAConnection*)withPriority:(int)priority connectUnit:(RAUnitBlock)block;
+- (RAConnection *)withPriority:(int)priority connectUnit:(RAUnitBlock)block;
 @end
