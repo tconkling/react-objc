@@ -12,27 +12,32 @@
     PostDispatchAction *next;
 }
 @end
+
 @implementation PostDispatchAction
-- (id)initWithAction:(RAUnitBlock)postaction {
-    if (!(self = [super init])) return nil;
-    self->action = [postaction copy];
+
+- (id)initWithAction:(RAUnitBlock)postAction {
+    if ((self = [super init])) {
+        self->action = [postAction copy];
+    }
     return self;
 }
-- (void)insertAction:(RAUnitBlock)newaction {
-    if (next) [next insertAction:newaction];
-    else next = [[PostDispatchAction alloc] initWithAction:newaction];
+
+- (void)insertAction:(RAUnitBlock)newAction {
+    if (next) {
+        [next insertAction:newAction];
+    } else {
+        next = [[PostDispatchAction alloc] initWithAction:newAction];
+    }
 }
 @end
 
 @interface RAReactor () {
-@protected
-    RAConnection *head;
-    PostDispatchAction *pending;
+    RAConnection *_head;
+    PostDispatchAction *_pending;
 }
-
 @end
 
-static void insertConn(RAConnection* conn,  RAConnection* head) {
+static void insertConn(RAConnection *conn,  RAConnection *head) {
     if (head->next && head->next->priority >= conn->priority) insertConn(conn, head->next);
     else {
         conn->next = head->next;
@@ -42,88 +47,119 @@ static void insertConn(RAConnection* conn,  RAConnection* head) {
 
 @implementation RAReactor
 
-- (void)insertConn:(RAConnection*)conn {
-    if (!head || conn->priority > head->priority) {
-        conn->next = head;
-        head = conn;
-    } else insertConn(conn, head);
+- (void)insertConn:(RAConnection *)conn {
+    @synchronized (self) {
+        if (!_head || conn->priority > _head->priority) {
+            conn->next = _head;
+            _head = conn;
+        } else {
+            insertConn(conn, _head);
+        }
+    }
 }
 
-- (void)removeConn:(RAConnection*)conn {
-    if (head == nil) return;
-    else if (conn == head) {
-        head = head->next;
-        return;
-    }
-    RAConnection *prev = head;
-    for (RAConnection *cur = head->next; cur != nil; cur = cur->next) {
-        if (cur == conn) {
-            prev->next = cur->next;
+- (void)removeConn:(RAConnection *)conn {
+    @synchronized (self) {
+        if (_head == nil) {
+            return;
+        } else if (conn == _head) {
+            _head = _head->next;
             return;
         }
-        prev = cur;
+
+        RAConnection *prev = _head;
+        for (RAConnection *cur = _head->next; cur != nil; cur = cur->next) {
+            if (cur == conn) {
+                prev->next = cur->next;
+                return;
+            }
+            prev = cur;
+        }
     }
 }
 
-- (void)disconnect:(RAConnection*)conn {
-    if (RA_IS_CONNECTED(conn)) {
-        // mark the connection as disconnected by nilling out the reactor reference
-        conn->reactor = nil;
+- (void)disconnect:(RAConnection *)conn {
+    @synchronized (self) {
+        if (RA_IS_CONNECTED(conn)) {
+            // mark the connection as disconnected by nilling out the reactor reference
+            conn->reactor = nil;
 
-        if (pending != nil) {
-            [pending insertAction:^{ [self removeConn:conn]; }];
+            if (_pending != nil) {
+                [_pending insertAction:^{
+                    [self removeConn:conn];
+                }];
+            } else {
+                [self removeConn:conn];
+            }
         }
-        else [self removeConn:conn];
     }
 }
 
 - (void)disconnectAll {
-    for (RAConnection* cur = head; cur != nil; cur = cur->next) {
-        cur->reactor = nil;
-    }
+    @synchronized (self) {
+        for (RAConnection *cur = _head; cur != nil; cur = cur->next) {
+            cur->reactor = nil;
+        }
 
-    if (pending != nil) {
-        [pending insertAction:^{ self->head = nil; }];
+        if (_pending != nil) {
+            [_pending insertAction:^{
+                self->_head = nil;
+            }];
+        } else {
+            _head = nil;
+        }
     }
-    else head = nil;
 }
 
-- (RAConnection*)connectUnit:(RAUnitBlock)block {
+- (RAConnection *)connectUnit:(RAUnitBlock)block {
     @throw [NSException exceptionWithName:NSInternalInconsistencyException
         reason:[NSString stringWithFormat:@"You must override %@ in a subclass",
         NSStringFromSelector(_cmd)] userInfo:nil];
 }
 
-- (RAConnection*)withPriority:(int)priority connectUnit:(RAUnitBlock)block {
+- (RAConnection *)withPriority:(int)priority connectUnit:(RAUnitBlock)block {
     @throw [NSException exceptionWithName:NSInternalInconsistencyException
         reason:[NSString stringWithFormat:@"You must override %@ in a subclass",
         NSStringFromSelector(_cmd)] userInfo:nil];
 }
+
 @end
 
 @implementation RAReactor (Protected)
-- (RAConnection*)connectConnection:(RAConnection*)connection {
-    if (pending != nil) {
-        [pending insertAction:^{
-            // ensure the connection hasn't already been disconnected
-            if (RA_IS_CONNECTED(connection)) {
-                [self insertConn:connection];
-            }
-        }];
-    }
-    else [self insertConn:connection];
-    return connection;
 
+- (RAConnection *)connectConnection:(RAConnection*)connection {
+    @synchronized (self) {
+        if (_pending != nil) {
+            [_pending insertAction:^{
+                // ensure the connection hasn't already been disconnected
+                if (RA_IS_CONNECTED(connection)) {
+                    [self insertConn:connection];
+                }
+            }];
+        } else {
+            [self insertConn:connection];
+        }
+
+        return connection;
+    }
 }
-- (RAConnection*)prepareForEmission {
-    NSAssert(pending == nil, @"Asked to emit while emission in progress");
-    pending = [[PostDispatchAction alloc] initWithAction:^{ }];
-    return head;
+- (RAConnection *)prepareForEmission {
+    @synchronized (self) {
+        NSAssert(_pending == nil, @"Asked to emit while emission in progress");
+        _pending = [[PostDispatchAction alloc] initWithAction:^{
+            // Intentionally empty
+        }];
+        return _head;
+    }
 }
 
 - (void)finishEmission {
-    for (; pending != nil; pending = pending->next) pending->action();
-    pending = nil;
+    @synchronized (self) {
+        for (; _pending != nil; _pending = _pending->next) {
+            _pending->action();
+        }
+        _pending = nil;
+    }
 }
 
 @end
