@@ -7,11 +7,11 @@
 
 @implementation RAObjectValue
 
-- (id)init {
+- (instancetype)init {
     return [self initWithValue:nil];
 }
 
-- (id)initWithValue:(id)value {
+- (instancetype)initWithValue:(id)value {
     if ((self = [super init])) {
         _value = value;
     }

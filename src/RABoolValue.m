@@ -7,11 +7,11 @@
 
 @implementation RABoolValue
 
-- (id)init {
+- (instancetype)init {
     return [self initWithValue:NO];
 }
 
-- (id)initWithValue:(BOOL)value {
+- (instancetype)initWithValue:(BOOL)value {
     if ((self = [super init])) {
         _value = value;
     }

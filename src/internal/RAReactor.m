@@ -6,28 +6,23 @@
 #import "RAReactor+Protected.h"
 #import "RAConnection.h"
 
-#define RAISE_ABSTRACT_EXCEPTION()                                                  \
-    @throw [NSException exceptionWithName:NSInternalInconsistencyException          \
-        reason:[NSString stringWithFormat:@"You must override %@ in a subclass",    \
-        NSStringFromSelector(_cmd)] userInfo:nil]
-
 @interface PostDispatchAction : NSObject {
 @public
-    RAUnitBlock action;
+    void (^action)();
     PostDispatchAction *next;
 }
 @end
 
 @implementation PostDispatchAction
 
-- (id)initWithAction:(RAUnitBlock)postAction {
+- (instancetype)initWithAction:(void (^)())postAction {
     if ((self = [super init])) {
         self->action = [postAction copy];
     }
     return self;
 }
 
-- (void)insertAction:(RAUnitBlock)newAction {
+- (void)insertAction:(void (^)())newAction {
     if (next) {
         [next insertAction:newAction];
     } else {
@@ -37,8 +32,8 @@
 @end
 
 @interface RAReactor () {
-    RAConnection *_head;
-    PostDispatchAction *_pending;
+    RAConnection *_listeners;
+    PostDispatchAction *_pendingActions;
 }
 @end
 
@@ -52,32 +47,36 @@ static void insertConn (RAConnection *conn,  RAConnection *head) {
 
 @implementation RAReactor
 
+- (BOOL)hasConnections {
+    return (_listeners != nil);
+}
+
 - (BOOL)isEmitting {
-    return (_pending != nil);
+    return (_pendingActions != nil);
 }
 
 - (void)insertConn:(RAConnection *)conn {
     @synchronized (self) {
-        if (!_head || conn->priority > _head->priority) {
-            conn->next = _head;
-            _head = conn;
+        if (!_listeners || conn->priority > _listeners->priority) {
+            conn->next = _listeners;
+            _listeners = conn;
         } else {
-            insertConn(conn, _head);
+            insertConn(conn, _listeners);
         }
     }
 }
 
 - (void)removeConn:(RAConnection *)conn {
     @synchronized (self) {
-        if (_head == nil) {
+        if (_listeners == nil) {
             return;
-        } else if (conn == _head) {
-            _head = _head->next;
+        } else if (conn == _listeners) {
+            _listeners = _listeners->next;
             return;
         }
 
-        RAConnection *prev = _head;
-        for (RAConnection *cur = _head->next; cur != nil; cur = cur->next) {
+        RAConnection *prev = _listeners;
+        for (RAConnection *cur = _listeners->next; cur != nil; cur = cur->next) {
             if (cur == conn) {
                 prev->next = cur->next;
                 return;
@@ -94,7 +93,7 @@ static void insertConn (RAConnection *conn,  RAConnection *head) {
             conn->reactor = nil;
 
             if (self.isEmitting) {
-                [_pending insertAction:^{
+                [_pendingActions insertAction:^{
                     [self removeConn:conn];
                 }];
             } else {
@@ -106,36 +105,36 @@ static void insertConn (RAConnection *conn,  RAConnection *head) {
 
 - (void)disconnectAll {
     @synchronized (self) {
-        for (RAConnection *cur = _head; cur != nil; cur = cur->next) {
+        for (RAConnection *cur = _listeners; cur != nil; cur = cur->next) {
             cur->reactor = nil;
         }
 
         if (self.isEmitting) {
-            [_pending insertAction:^{
-                self->_head = nil;
+            [_pendingActions insertAction:^{
+                self->_listeners = nil;
             }];
         } else {
-            _head = nil;
+            _listeners = nil;
         }
     }
 }
 
-- (RAConnection *)connectUnit:(RAUnitBlock)block {
-    RAISE_ABSTRACT_EXCEPTION();
+- (RAConnection *)connectUnit:(void (^)())slot {
+    RA_IS_ABSTRACT();
 }
 
-- (RAConnection *)withPriority:(int)priority connectUnit:(RAUnitBlock)block {
-    RAISE_ABSTRACT_EXCEPTION();
+- (RAConnection *)withPriority:(int)priority connectUnit:(void (^)())slot {
+    RA_IS_ABSTRACT();
 }
 
 @end
 
 @implementation RAReactor (Protected)
 
-- (RAConnection *)connectConnection:(RAConnection *)connection {
+- (RAConnection *)addConnection:(RAConnection *)connection {
     @synchronized (self) {
         if (self.isEmitting) {
-            [_pending insertAction:^{
+            [_pendingActions insertAction:^{
                 // ensure the connection hasn't already been disconnected
                 if (RA_IS_CONNECTED(connection)) {
                     [self insertConn:connection];
@@ -151,20 +150,20 @@ static void insertConn (RAConnection *conn,  RAConnection *head) {
 - (RAConnection *)prepareForEmission {
     @synchronized (self) {
         NSAssert(!self.isEmitting, @"Asked to emit while emission in progress");
-        _pending = [[PostDispatchAction alloc] initWithAction:^{
+        _pendingActions = [[PostDispatchAction alloc] initWithAction:^{
             // Intentionally empty
         }];
-        return _head;
+        return _listeners;
     }
 }
 
 - (void)finishEmission {
     @synchronized (self) {
         NSAssert(self.isEmitting, @"Emission not in progress");
-        for (; _pending != nil; _pending = _pending->next) {
-            _pending->action();
+        for (; _pendingActions != nil; _pendingActions = _pendingActions->next) {
+            _pendingActions->action();
         }
-        _pending = nil;
+        _pendingActions = nil;
     }
 }
 

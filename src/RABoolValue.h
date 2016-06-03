@@ -10,6 +10,6 @@
 }
 
 @property(nonatomic,readwrite) BOOL value;
-- (id)init;
-- (id)initWithValue:(BOOL)value;
+- (instancetype)init;
+- (instancetype)initWithValue:(BOOL)value;
 @end

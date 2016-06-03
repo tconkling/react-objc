@@ -11,6 +11,9 @@
  */
 @interface RAReactor : NSObject
 
+/** YES if this Reactor has at least one connection */
+@property (nonatomic, readonly) BOOL hasConnections;
+
 /** Keeps the given connection from receiving further emissions. */
 - (void)disconnect:(RAConnection *)conn;
 
@@ -18,8 +21,8 @@
 - (void)disconnectAll;
 
 /** Connects the given unit at the default priority.  */
-- (RAConnection *)connectUnit:(RAUnitBlock)block;
+- (RAConnection *)connectUnit:(void (^)())slot;
 
 /** Connects the given unit at the given priority.  */
-- (RAConnection *)withPriority:(int)priority connectUnit:(RAUnitBlock)block;
+- (RAConnection *)withPriority:(int)priority connectUnit:(void (^)())slot;
 @end

@@ -7,11 +7,11 @@
 
 @implementation RAStringValue
 
-- (id)init {
+- (instancetype)init {
     return [self initWithValue:nil];
 }
 
-- (id)initWithValue:(NSString *)value {
+- (instancetype)initWithValue:(NSString *)value {
     if ((self = [super init])) {
         _value = value;
     }

@@ -11,7 +11,7 @@
 - (void)emit {
     for (RAConnection *cur = [self prepareForEmission]; cur != nil; cur = cur->next) {
         if (RA_IS_CONNECTED(cur)) {
-            ((RAUnitBlock)cur->block)();
+            ((void (^)())cur->block)();
             if (cur->oneShot) {
                 [cur disconnect];
             }
@@ -20,12 +20,12 @@
     [self finishEmission];
 }
 
-- (RAConnection *)connectUnit:(RAUnitBlock)block {
+- (RAConnection *)connectUnit:(void (^)())block {
     return [self withPriority:RA_DEFAULT_PRIORITY connectUnit:block];
 }
 
-- (RAConnection *)withPriority:(int)priority connectUnit:(RAUnitBlock)block {
-    return [self connectConnection:[[RAConnection alloc] initWithBlock:block atPriority:priority onReactor:self]];
+- (RAConnection *)withPriority:(int)priority connectUnit:(void (^)())block {
+    return [self addConnection:[[RAConnection alloc] initWithBlock:block atPriority:priority onReactor:self]];
 }
 
 @end

@@ -10,6 +10,6 @@
 }
 
 @property(nonatomic,readwrite) double value;
-- (id)init;
-- (id)initWithValue:(double)value;
+- (instancetype)init;
+- (instancetype)initWithValue:(double)value;
 @end

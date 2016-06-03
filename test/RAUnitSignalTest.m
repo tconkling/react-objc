@@ -54,8 +54,12 @@
     RAConnectionGroup *group = [[RAConnectionGroup alloc] init];
     RAUnitSignal *sig = [[RAUnitSignal alloc] init];
     __block int x = 0;
-    [group addConnection:[sig connectUnit:^{ x++; }]];
-    [group addConnection:[sig connectUnit:^{ x++; }]];
+    [group add:[sig connectUnit:^{
+        x++;
+    }]];
+    [group add:[sig connectUnit:^{
+        x++;
+    }]];
     [sig connectUnit:^{ x++; }];
     [sig emit];
     XCTAssertEqual(x, 3);

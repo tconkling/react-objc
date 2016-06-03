@@ -7,11 +7,11 @@
 
 @implementation RAFloatValue
 
-- (id)init {
+- (instancetype)init {
     return [self initWithValue:0];
 }
 
-- (id)initWithValue:(float)value {
+- (instancetype)initWithValue:(float)value {
     if ((self = [super init])) {
         _value = value;
     }

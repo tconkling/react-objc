@@ -10,6 +10,6 @@
 }
 
 @property(nonatomic,readwrite) NSString *value;
-- (id)init;
-- (id)initWithValue:(NSString *)value;
+- (instancetype)init;
+- (instancetype)initWithValue:(NSString *)value;
 @end

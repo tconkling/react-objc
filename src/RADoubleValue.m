@@ -7,11 +7,11 @@
 
 @implementation RADoubleValue
 
-- (id)init {
+- (instancetype)init {
     return [self initWithValue:0];
 }
 
-- (id)initWithValue:(double)value {
+- (instancetype)initWithValue:(double)value {
     if ((self = [super init])) {
         _value = value;
     }

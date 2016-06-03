@@ -5,11 +5,9 @@
 #import "RAReactor.h"
 
 @interface RAFloatReactor : RAReactor
-/** @name Connection */
-
 /** Connects the given block to receive emissions from this signal at the default priority.  */
-- (RAConnection *)connectSlot:(RAFloatSlot)block;
+- (RAConnection *)connect:(void (^)(float))slot;
 
 /** Connects the given block at the given priority.  */
-- (RAConnection *)withPriority:(int)priority connectSlot:(RAFloatSlot)block;
+- (RAConnection *)withPriority:(int)priority connect:(void (^)(float))slot;
 @end

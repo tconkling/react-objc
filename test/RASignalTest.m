@@ -13,8 +13,9 @@
     RAObjectSignal *sig = [[RAObjectSignal alloc] init];
     __block int x = 0;
     [sig connectUnit:^{ x++; }];
-    [sig connectSlot:^(id value) {
-        XCTAssertEqual(value, @"Hello"); x++;
+    [sig connect:^(id value) {
+        XCTAssertEqual(value, @"Hello");
+        x++;
     }];
     [sig emitEvent:@"Hello"];
     XCTAssertEqual(x, 2);

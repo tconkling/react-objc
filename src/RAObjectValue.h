@@ -10,6 +10,6 @@
 }
 
 @property(nonatomic,readwrite,strong) id value;
-- (id)init;
-- (id)initWithValue:(id)value;
+- (instancetype)init;
+- (instancetype)initWithValue:(id)value;
 @end

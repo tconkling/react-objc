@@ -7,11 +7,11 @@
 
 @implementation RAIntValue
 
-- (id)init {
+- (instancetype)init {
     return [self initWithValue:0];
 }
 
-- (id)initWithValue:(int)value {
+- (instancetype)initWithValue:(int)value {
     if ((self = [super init])) {
         _value = value;
     }

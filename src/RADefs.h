@@ -3,12 +3,10 @@
 // https://github.com/tconkling/react-objc/blob/master/LICENSE
 
 #import <Foundation/Foundation.h>
-#define RA_DEFAULT_PRIORITY 0
 
-typedef void (^RAUnitBlock)(void);
-typedef void (^RABoolSlot)(BOOL);
-typedef void (^RADoubleSlot)(double);
-typedef void (^RAObjectSlot)(id);
-typedef void (^RAFloatSlot)(float);
-typedef void (^RAIntSlot)(int);
-typedef void (^RAStringSlot)(NSString *);
+#define RA_IS_ABSTRACT()                                                            \
+    @throw [NSException exceptionWithName:NSInternalInconsistencyException          \
+        reason:[NSString stringWithFormat:@"You must override %@ in a subclass",    \
+        NSStringFromSelector(_cmd)] userInfo:nil]
+
+#define RA_DEFAULT_PRIORITY 0
