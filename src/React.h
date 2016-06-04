@@ -15,3 +15,5 @@
 #import "RAObjectSignal.h"
 #import "RAObjectValue.h"
 #import "RAUnitSignal.h"
+#import "RAFuture.h"
+#import "RAPromise.h"
