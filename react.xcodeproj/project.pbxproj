@@ -1,0 +1,651 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1C098020C61DB1A28CC7A2E2 /* RAObjectSignal.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C0987E1336062AE559AB81B /* RAObjectSignal.h */; };
+		1C098058DBDF1715610FEAEE /* RAFloatValue.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C098F10B509C953DD8B8D36 /* RAFloatValue.h */; };
+		1C0980F19C31DD789B55407E /* RAFutureTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1C098B33C6B2CA6312E84104 /* RAFutureTest.mm */; };
+		1C09811C22C88AAF1C6AB979 /* RAIntReactor.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C0983CD429404A2B4B6476F /* RAIntReactor.h */; };
+		1C098128BB6902458BB3A852 /* RAUnitSignal.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C098A66CF2EB8E19FD376D4 /* RAUnitSignal.h */; };
+		1C09813AAD37EB8EBD3FBFE6 /* RAIntReactor+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C0983CE7C1FEF0203E206E1 /* RAIntReactor+Protected.h */; };
+		1C098157BCB1129534EE34B2 /* RAStringValue.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C098318BFFDDB21FD9EC18D /* RAStringValue.h */; };
+		1C09819180017CB700A80D16 /* RAStringReactor+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C098A87024823FAE53E7E91 /* RAStringReactor+Protected.h */; };
+		1C0981957BA222ADDF94CABE /* RAObjectReactor+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C09883EDA30980743C7A0FD /* RAObjectReactor+Protected.h */; };
+		1C0982060EE24A3995BF944F /* RADoubleReactor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C098F29C7B94E1912E25B0C /* RADoubleReactor.m */; };
+		1C098233292B3065AF6E7259 /* RAIntValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0982431A8E0643CCB03FAC /* RAIntValue.m */; };
+		1C0983F488A1356ACF9494D9 /* RAFuture.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1C098CC81D765E96982A3FF5 /* RAFuture.mm */; };
+		1C09841998DEF2E0EB14337B /* React.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C09841833711EA15E9C2BE8 /* React.h */; };
+		1C0984507B1893A68A5B4D70 /* RADoubleReactor.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C0987911246BA88EDB5673A /* RADoubleReactor.h */; };
+		1C098455432D117ED7EFDC2E /* RAUnitSignal.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C098FFC04A053B26D0DEC32 /* RAUnitSignal.m */; };
+		1C0984FDA21FC73C2EE7DCA1 /* RAReactor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0980527538611E5E10E06C /* RAReactor.m */; };
+		1C0985494AF4929169CFC3E3 /* RADoubleSignal.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C09813AA27F85A76C2BFB78 /* RADoubleSignal.h */; };
+		1C0985676EAB29AE383FE06D /* RAFloatValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C098C0D97291096510982FA /* RAFloatValue.m */; };
+		1C09857838C625D0EACA1EFB /* RAObjectValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0987AEC8CC6F612AB9B881 /* RAObjectValue.m */; };
+		1C098589AB13306E6CFD3D1E /* RAFloatReactor.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C0980DDC1F1E952C97C1ABC /* RAFloatReactor.h */; };
+		1C0985C95A03191CDDB47A6D /* RABoolReactor+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C098AB427F9DEBC40E99EFA /* RABoolReactor+Protected.h */; };
+		1C0986300BB4F42D714469EA /* RAConnectionGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0983E56D9DC221C2493FFC /* RAConnectionGroup.m */; };
+		1C09869C633C728B6E79A9B3 /* RAConnectionGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C09829A3E19854490C51919 /* RAConnectionGroup.h */; };
+		1C0986A3154743E7202CF876 /* RAConnection+Package.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C0987EEDBE4BB5DB123CD62 /* RAConnection+Package.h */; };
+		1C0986D7781C53D46E22BB0F /* RADoubleValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0987CC2341EF42CDBB6327 /* RADoubleValue.m */; };
+		1C09871991D78048F66C1CCD /* RAFloatSignal.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0981D82CB7197DAD4AD323 /* RAFloatSignal.m */; };
+		1C0987AB3FEB586600A75ED9 /* RABoolValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C09842F187E1A188EA10687 /* RABoolValue.m */; };
+		1C0987DED86BD42F0D52FBAD /* RASignalTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0984A8E6260E43BE79B334 /* RASignalTest.m */; };
+		1C0987E18E446FD6EEF247F3 /* RABoolValue.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C098CDDF056FA6F74D4CD46 /* RABoolValue.h */; };
+		1C0987FFAF910AC0A5899BA9 /* RAReactor+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C098B2F94CCA7CC74335AE7 /* RAReactor+Protected.h */; };
+		1C09880A29FB65A73102AB14 /* RAPromise.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1C09813A76AC82CB8E0F1F35 /* RAPromise.mm */; };
+		1C09880D881025BC58F065C4 /* RAFuture.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C0988680C5D53A177B767AE /* RAFuture.h */; };
+		1C0988503611F1CDD053B656 /* RAObjectSignal.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C098E874E161ACD08186D39 /* RAObjectSignal.m */; };
+		1C0988717B04E25097B85A70 /* RAIntValue.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C098369A2097E33A5738DD9 /* RAIntValue.h */; };
+		1C0988C2A0458562FAB9BBA0 /* Counter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1C098B848E2BD082C1F4581D /* Counter.mm */; };
+		1C0988C475CC66112901F4A4 /* RADoubleValue.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C098881BF4145C278985777 /* RADoubleValue.h */; };
+		1C0988F447D91F47B7AA9B74 /* RABoolReactor.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C098A82DE2D56D0F0EFEED7 /* RABoolReactor.h */; };
+		1C098986F865500A6D49842A /* RAStringSignal.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C098FB51A0116DC922BEAC3 /* RAStringSignal.h */; };
+		1C0989B3DD244C7D78A68ED5 /* RABoolReactor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C09830A9196F2E86DCD0C1C /* RABoolReactor.m */; };
+		1C0989B7BA567274F171ED0D /* RABoolSignal.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0987658A26F112B3440108 /* RABoolSignal.m */; };
+		1C0989C5CF14C2C95CCEC6C1 /* RABoolSignal.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C098F5DF17A78D489BF6381 /* RABoolSignal.h */; };
+		1C0989CB222C44DA093A622A /* RADoubleSignal.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0982F3496F26C4405F647E /* RADoubleSignal.m */; };
+		1C0989EC20F9EB75DA07F10D /* RAFloatSignal.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C098ABF35C42EB941EE8E48 /* RAFloatSignal.h */; };
+		1C098AA7868FB2314F2F0C42 /* RAReactor.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C0980EBDCD133804201FC5A /* RAReactor.h */; };
+		1C098AAD2CE5DD9D4D064147 /* RAObjectValue.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C0982B67DFF41EF7ADEAA35 /* RAObjectValue.h */; };
+		1C098B8E07069DAF010DACCE /* RATry.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1C0983442A7754CDC1589DB2 /* RATry.mm */; };
+		1C098C0AC677479923A50BC2 /* RAUnitSignalTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0982C485BCD51D2EE801D3 /* RAUnitSignalTest.m */; };
+		1C098C1A58561FEE20C6E53A /* RAIntSignal.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0983BE7CB8FDE29CAE946D /* RAIntSignal.m */; };
+		1C098C4C06D748249D4BC042 /* RADoubleReactor+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C098C5933C3807FB0FEABBB /* RADoubleReactor+Protected.h */; };
+		1C098C7DC8E24082E88B3F58 /* RAStringReactor.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C0985EA2DED045BAA6F30F6 /* RAStringReactor.h */; };
+		1C098D806CC1E6162896C1E4 /* RAFloatReactor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C09828DD90F0FBFB4C949DF /* RAFloatReactor.m */; };
+		1C098D9759DA6234A46E4F77 /* RADefs.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C0985880F816D01F039B94D /* RADefs.h */; };
+		1C098DABE2ABCEA200873761 /* RAObjectReactor.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C0985AD78CCE19CD4AF7B4B /* RAObjectReactor.h */; };
+		1C098DE98826B6DEE5FECC15 /* RAIntReactor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0981AA4E0A12E405418968 /* RAIntReactor.m */; };
+		1C098E0D0057133ACC87BD2F /* RAStringValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0984173787716BA2F7A95C /* RAStringValue.m */; };
+		1C098E22EF558918671DC043 /* RAStringReactor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C098E6899C50062D6AC0AD3 /* RAStringReactor.m */; };
+		1C098E2A2ACE0BC2C2691C60 /* RAIntSignal.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C09880731D90E7D5057127D /* RAIntSignal.h */; };
+		1C098E8919A7BABB1D865C6B /* RAFloatReactor+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C09834528FC43A6028D996F /* RAFloatReactor+Protected.h */; };
+		1C098E8B10C4F602DD74BB02 /* RATry.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C098C5046A8E154ED28C027 /* RATry.h */; };
+		1C098EDBF54448E410BFB693 /* RAConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C098A85633B5E6A23F81D96 /* RAConnection.m */; };
+		1C098F57E6E28A578331B5D3 /* RAConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C098A964D3528E13CC5F1D3 /* RAConnection.h */; };
+		1C098FA366914C10AE966660 /* RAPromise.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C0987B25395FCB69987A6CA /* RAPromise.h */; };
+		1C098FD6210663F589391BC0 /* RAObjectReactor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C09844C9D64177C45D200C3 /* RAObjectReactor.m */; };
+		1C098FE028C47ADD48703D75 /* RAStringSignal.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C098514F4B77181657AD140 /* RAStringSignal.m */; };
+		2285791D1D039A22006E5C8F /* react.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 228579121D039A22006E5C8F /* react.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2285791E1D039A22006E5C8F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 228579091D039A22006E5C8F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 228579111D039A22006E5C8F;
+			remoteInfo = react;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1C0980527538611E5E10E06C /* RAReactor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAReactor.m; sourceTree = "<group>"; };
+		1C0980DDC1F1E952C97C1ABC /* RAFloatReactor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAFloatReactor.h; sourceTree = "<group>"; };
+		1C0980EBDCD133804201FC5A /* RAReactor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAReactor.h; sourceTree = "<group>"; };
+		1C09813A76AC82CB8E0F1F35 /* RAPromise.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RAPromise.mm; sourceTree = "<group>"; };
+		1C09813AA27F85A76C2BFB78 /* RADoubleSignal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RADoubleSignal.h; sourceTree = "<group>"; };
+		1C0981AA4E0A12E405418968 /* RAIntReactor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAIntReactor.m; sourceTree = "<group>"; };
+		1C0981D82CB7197DAD4AD323 /* RAFloatSignal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAFloatSignal.m; sourceTree = "<group>"; };
+		1C0982431A8E0643CCB03FAC /* RAIntValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAIntValue.m; sourceTree = "<group>"; };
+		1C09828DD90F0FBFB4C949DF /* RAFloatReactor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAFloatReactor.m; sourceTree = "<group>"; };
+		1C09829A3E19854490C51919 /* RAConnectionGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAConnectionGroup.h; sourceTree = "<group>"; };
+		1C0982B67DFF41EF7ADEAA35 /* RAObjectValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAObjectValue.h; sourceTree = "<group>"; };
+		1C0982C485BCD51D2EE801D3 /* RAUnitSignalTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAUnitSignalTest.m; sourceTree = "<group>"; };
+		1C0982F3496F26C4405F647E /* RADoubleSignal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RADoubleSignal.m; sourceTree = "<group>"; };
+		1C09830A9196F2E86DCD0C1C /* RABoolReactor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RABoolReactor.m; sourceTree = "<group>"; };
+		1C098318BFFDDB21FD9EC18D /* RAStringValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAStringValue.h; sourceTree = "<group>"; };
+		1C0983442A7754CDC1589DB2 /* RATry.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RATry.mm; sourceTree = "<group>"; };
+		1C09834528FC43A6028D996F /* RAFloatReactor+Protected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RAFloatReactor+Protected.h"; sourceTree = "<group>"; };
+		1C098369A2097E33A5738DD9 /* RAIntValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAIntValue.h; sourceTree = "<group>"; };
+		1C0983BE7CB8FDE29CAE946D /* RAIntSignal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAIntSignal.m; sourceTree = "<group>"; };
+		1C0983CD429404A2B4B6476F /* RAIntReactor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAIntReactor.h; sourceTree = "<group>"; };
+		1C0983CE7C1FEF0203E206E1 /* RAIntReactor+Protected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RAIntReactor+Protected.h"; sourceTree = "<group>"; };
+		1C0983E56D9DC221C2493FFC /* RAConnectionGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAConnectionGroup.m; sourceTree = "<group>"; };
+		1C0984173787716BA2F7A95C /* RAStringValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAStringValue.m; sourceTree = "<group>"; };
+		1C09841833711EA15E9C2BE8 /* React.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = React.h; sourceTree = "<group>"; };
+		1C09842F187E1A188EA10687 /* RABoolValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RABoolValue.m; sourceTree = "<group>"; };
+		1C09844C9D64177C45D200C3 /* RAObjectReactor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAObjectReactor.m; sourceTree = "<group>"; };
+		1C0984A8E6260E43BE79B334 /* RASignalTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RASignalTest.m; sourceTree = "<group>"; };
+		1C098514F4B77181657AD140 /* RAStringSignal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAStringSignal.m; sourceTree = "<group>"; };
+		1C0985880F816D01F039B94D /* RADefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RADefs.h; sourceTree = "<group>"; };
+		1C0985AD78CCE19CD4AF7B4B /* RAObjectReactor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAObjectReactor.h; sourceTree = "<group>"; };
+		1C0985EA2DED045BAA6F30F6 /* RAStringReactor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAStringReactor.h; sourceTree = "<group>"; };
+		1C0987658A26F112B3440108 /* RABoolSignal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RABoolSignal.m; sourceTree = "<group>"; };
+		1C0987911246BA88EDB5673A /* RADoubleReactor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RADoubleReactor.h; sourceTree = "<group>"; };
+		1C0987AEC8CC6F612AB9B881 /* RAObjectValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAObjectValue.m; sourceTree = "<group>"; };
+		1C0987B25395FCB69987A6CA /* RAPromise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAPromise.h; sourceTree = "<group>"; };
+		1C0987CC2341EF42CDBB6327 /* RADoubleValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RADoubleValue.m; sourceTree = "<group>"; };
+		1C0987E1336062AE559AB81B /* RAObjectSignal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAObjectSignal.h; sourceTree = "<group>"; };
+		1C0987EEDBE4BB5DB123CD62 /* RAConnection+Package.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RAConnection+Package.h"; sourceTree = "<group>"; };
+		1C09880731D90E7D5057127D /* RAIntSignal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAIntSignal.h; sourceTree = "<group>"; };
+		1C09883EDA30980743C7A0FD /* RAObjectReactor+Protected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RAObjectReactor+Protected.h"; sourceTree = "<group>"; };
+		1C0988680C5D53A177B767AE /* RAFuture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAFuture.h; sourceTree = "<group>"; };
+		1C098881BF4145C278985777 /* RADoubleValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RADoubleValue.h; sourceTree = "<group>"; };
+		1C0988CDD0586479126CA8C6 /* Counter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Counter.h; sourceTree = "<group>"; };
+		1C098A66CF2EB8E19FD376D4 /* RAUnitSignal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAUnitSignal.h; sourceTree = "<group>"; };
+		1C098A82DE2D56D0F0EFEED7 /* RABoolReactor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RABoolReactor.h; sourceTree = "<group>"; };
+		1C098A85633B5E6A23F81D96 /* RAConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAConnection.m; sourceTree = "<group>"; };
+		1C098A87024823FAE53E7E91 /* RAStringReactor+Protected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RAStringReactor+Protected.h"; sourceTree = "<group>"; };
+		1C098A964D3528E13CC5F1D3 /* RAConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAConnection.h; sourceTree = "<group>"; };
+		1C098AB427F9DEBC40E99EFA /* RABoolReactor+Protected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RABoolReactor+Protected.h"; sourceTree = "<group>"; };
+		1C098ABF35C42EB941EE8E48 /* RAFloatSignal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAFloatSignal.h; sourceTree = "<group>"; };
+		1C098B2F94CCA7CC74335AE7 /* RAReactor+Protected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RAReactor+Protected.h"; sourceTree = "<group>"; };
+		1C098B33C6B2CA6312E84104 /* RAFutureTest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RAFutureTest.mm; sourceTree = "<group>"; };
+		1C098B848E2BD082C1F4581D /* Counter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Counter.mm; sourceTree = "<group>"; };
+		1C098C0D97291096510982FA /* RAFloatValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAFloatValue.m; sourceTree = "<group>"; };
+		1C098C5046A8E154ED28C027 /* RATry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RATry.h; sourceTree = "<group>"; };
+		1C098C5933C3807FB0FEABBB /* RADoubleReactor+Protected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RADoubleReactor+Protected.h"; sourceTree = "<group>"; };
+		1C098CC81D765E96982A3FF5 /* RAFuture.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RAFuture.mm; sourceTree = "<group>"; };
+		1C098CDDF056FA6F74D4CD46 /* RABoolValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RABoolValue.h; sourceTree = "<group>"; };
+		1C098E6899C50062D6AC0AD3 /* RAStringReactor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAStringReactor.m; sourceTree = "<group>"; };
+		1C098E874E161ACD08186D39 /* RAObjectSignal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAObjectSignal.m; sourceTree = "<group>"; };
+		1C098F10B509C953DD8B8D36 /* RAFloatValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAFloatValue.h; sourceTree = "<group>"; };
+		1C098F29C7B94E1912E25B0C /* RADoubleReactor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RADoubleReactor.m; sourceTree = "<group>"; };
+		1C098F5DF17A78D489BF6381 /* RABoolSignal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RABoolSignal.h; sourceTree = "<group>"; };
+		1C098FB51A0116DC922BEAC3 /* RAStringSignal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAStringSignal.h; sourceTree = "<group>"; };
+		1C098FFC04A053B26D0DEC32 /* RAUnitSignal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAUnitSignal.m; sourceTree = "<group>"; };
+		228579121D039A22006E5C8F /* react.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = react.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		228579171D039A22006E5C8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2285791C1D039A22006E5C8F /* reactTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = reactTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		228579231D039A22006E5C8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2285790E1D039A22006E5C8F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		228579191D039A22006E5C8F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2285791D1D039A22006E5C8F /* react.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1C0981BEAC86B6F948BEF149 /* internal */ = {
+			isa = PBXGroup;
+			children = (
+				1C0980EBDCD133804201FC5A /* RAReactor.h */,
+				1C0980527538611E5E10E06C /* RAReactor.m */,
+				1C098A85633B5E6A23F81D96 /* RAConnection.m */,
+				1C0983CD429404A2B4B6476F /* RAIntReactor.h */,
+				1C0981AA4E0A12E405418968 /* RAIntReactor.m */,
+				1C098A82DE2D56D0F0EFEED7 /* RABoolReactor.h */,
+				1C09830A9196F2E86DCD0C1C /* RABoolReactor.m */,
+				1C0980DDC1F1E952C97C1ABC /* RAFloatReactor.h */,
+				1C09828DD90F0FBFB4C949DF /* RAFloatReactor.m */,
+				1C0987911246BA88EDB5673A /* RADoubleReactor.h */,
+				1C098F29C7B94E1912E25B0C /* RADoubleReactor.m */,
+				1C0985AD78CCE19CD4AF7B4B /* RAObjectReactor.h */,
+				1C09844C9D64177C45D200C3 /* RAObjectReactor.m */,
+				1C0985EA2DED045BAA6F30F6 /* RAStringReactor.h */,
+				1C098E6899C50062D6AC0AD3 /* RAStringReactor.m */,
+				1C098B2F94CCA7CC74335AE7 /* RAReactor+Protected.h */,
+				1C0987EEDBE4BB5DB123CD62 /* RAConnection+Package.h */,
+				1C0983CE7C1FEF0203E206E1 /* RAIntReactor+Protected.h */,
+				1C098AB427F9DEBC40E99EFA /* RABoolReactor+Protected.h */,
+				1C09834528FC43A6028D996F /* RAFloatReactor+Protected.h */,
+				1C098C5933C3807FB0FEABBB /* RADoubleReactor+Protected.h */,
+				1C09883EDA30980743C7A0FD /* RAObjectReactor+Protected.h */,
+				1C098A87024823FAE53E7E91 /* RAStringReactor+Protected.h */,
+			);
+			path = internal;
+			sourceTree = "<group>";
+		};
+		228579081D039A22006E5C8F = {
+			isa = PBXGroup;
+			children = (
+				228579141D039A22006E5C8F /* react */,
+				228579201D039A22006E5C8F /* reactTests */,
+				228579131D039A22006E5C8F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		228579131D039A22006E5C8F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				228579121D039A22006E5C8F /* react.framework */,
+				2285791C1D039A22006E5C8F /* reactTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		228579141D039A22006E5C8F /* react */ = {
+			isa = PBXGroup;
+			children = (
+				228579171D039A22006E5C8F /* Info.plist */,
+				1C0985880F816D01F039B94D /* RADefs.h */,
+				1C09813AA27F85A76C2BFB78 /* RADoubleSignal.h */,
+				1C0982F3496F26C4405F647E /* RADoubleSignal.m */,
+				1C098F10B509C953DD8B8D36 /* RAFloatValue.h */,
+				1C0981BEAC86B6F948BEF149 /* internal */,
+				1C098A66CF2EB8E19FD376D4 /* RAUnitSignal.h */,
+				1C0983E56D9DC221C2493FFC /* RAConnectionGroup.m */,
+				1C0981D82CB7197DAD4AD323 /* RAFloatSignal.m */,
+				1C0983442A7754CDC1589DB2 /* RATry.mm */,
+				1C0987658A26F112B3440108 /* RABoolSignal.m */,
+				1C0984173787716BA2F7A95C /* RAStringValue.m */,
+				1C098369A2097E33A5738DD9 /* RAIntValue.h */,
+				1C098A964D3528E13CC5F1D3 /* RAConnection.h */,
+				1C0987CC2341EF42CDBB6327 /* RADoubleValue.m */,
+				1C0988680C5D53A177B767AE /* RAFuture.h */,
+				1C0982B67DFF41EF7ADEAA35 /* RAObjectValue.h */,
+				1C098C0D97291096510982FA /* RAFloatValue.m */,
+				1C098881BF4145C278985777 /* RADoubleValue.h */,
+				1C0987AEC8CC6F612AB9B881 /* RAObjectValue.m */,
+				1C09829A3E19854490C51919 /* RAConnectionGroup.h */,
+				1C098CDDF056FA6F74D4CD46 /* RABoolValue.h */,
+				1C098ABF35C42EB941EE8E48 /* RAFloatSignal.h */,
+				1C098FFC04A053B26D0DEC32 /* RAUnitSignal.m */,
+				1C098C5046A8E154ED28C027 /* RATry.h */,
+				1C098FB51A0116DC922BEAC3 /* RAStringSignal.h */,
+				1C0983BE7CB8FDE29CAE946D /* RAIntSignal.m */,
+				1C098514F4B77181657AD140 /* RAStringSignal.m */,
+				1C0982431A8E0643CCB03FAC /* RAIntValue.m */,
+				1C098CC81D765E96982A3FF5 /* RAFuture.mm */,
+				1C0987E1336062AE559AB81B /* RAObjectSignal.h */,
+				1C098E874E161ACD08186D39 /* RAObjectSignal.m */,
+				1C098F5DF17A78D489BF6381 /* RABoolSignal.h */,
+				1C0987B25395FCB69987A6CA /* RAPromise.h */,
+				1C09842F187E1A188EA10687 /* RABoolValue.m */,
+				1C09880731D90E7D5057127D /* RAIntSignal.h */,
+				1C098318BFFDDB21FD9EC18D /* RAStringValue.h */,
+				1C09813A76AC82CB8E0F1F35 /* RAPromise.mm */,
+				1C09841833711EA15E9C2BE8 /* React.h */,
+			);
+			path = react;
+			sourceTree = "<group>";
+		};
+		228579201D039A22006E5C8F /* reactTests */ = {
+			isa = PBXGroup;
+			children = (
+				228579231D039A22006E5C8F /* Info.plist */,
+				1C098B848E2BD082C1F4581D /* Counter.mm */,
+				1C098B33C6B2CA6312E84104 /* RAFutureTest.mm */,
+				1C0984A8E6260E43BE79B334 /* RASignalTest.m */,
+				1C0988CDD0586479126CA8C6 /* Counter.h */,
+				1C0982C485BCD51D2EE801D3 /* RAUnitSignalTest.m */,
+			);
+			path = reactTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		2285790F1D039A22006E5C8F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C098D9759DA6234A46E4F77 /* RADefs.h in Headers */,
+				1C0985494AF4929169CFC3E3 /* RADoubleSignal.h in Headers */,
+				1C098058DBDF1715610FEAEE /* RAFloatValue.h in Headers */,
+				1C098AA7868FB2314F2F0C42 /* RAReactor.h in Headers */,
+				1C09811C22C88AAF1C6AB979 /* RAIntReactor.h in Headers */,
+				1C0988F447D91F47B7AA9B74 /* RABoolReactor.h in Headers */,
+				1C098589AB13306E6CFD3D1E /* RAFloatReactor.h in Headers */,
+				1C0984507B1893A68A5B4D70 /* RADoubleReactor.h in Headers */,
+				1C098DABE2ABCEA200873761 /* RAObjectReactor.h in Headers */,
+				1C098C7DC8E24082E88B3F58 /* RAStringReactor.h in Headers */,
+				1C0987FFAF910AC0A5899BA9 /* RAReactor+Protected.h in Headers */,
+				1C0986A3154743E7202CF876 /* RAConnection+Package.h in Headers */,
+				1C09813AAD37EB8EBD3FBFE6 /* RAIntReactor+Protected.h in Headers */,
+				1C0985C95A03191CDDB47A6D /* RABoolReactor+Protected.h in Headers */,
+				1C098E8919A7BABB1D865C6B /* RAFloatReactor+Protected.h in Headers */,
+				1C098C4C06D748249D4BC042 /* RADoubleReactor+Protected.h in Headers */,
+				1C0981957BA222ADDF94CABE /* RAObjectReactor+Protected.h in Headers */,
+				1C09819180017CB700A80D16 /* RAStringReactor+Protected.h in Headers */,
+				1C098128BB6902458BB3A852 /* RAUnitSignal.h in Headers */,
+				1C0988717B04E25097B85A70 /* RAIntValue.h in Headers */,
+				1C098F57E6E28A578331B5D3 /* RAConnection.h in Headers */,
+				1C09880D881025BC58F065C4 /* RAFuture.h in Headers */,
+				1C098AAD2CE5DD9D4D064147 /* RAObjectValue.h in Headers */,
+				1C0988C475CC66112901F4A4 /* RADoubleValue.h in Headers */,
+				1C09869C633C728B6E79A9B3 /* RAConnectionGroup.h in Headers */,
+				1C0987E18E446FD6EEF247F3 /* RABoolValue.h in Headers */,
+				1C0989EC20F9EB75DA07F10D /* RAFloatSignal.h in Headers */,
+				1C098E8B10C4F602DD74BB02 /* RATry.h in Headers */,
+				1C098986F865500A6D49842A /* RAStringSignal.h in Headers */,
+				1C098020C61DB1A28CC7A2E2 /* RAObjectSignal.h in Headers */,
+				1C0989C5CF14C2C95CCEC6C1 /* RABoolSignal.h in Headers */,
+				1C098FA366914C10AE966660 /* RAPromise.h in Headers */,
+				1C098E2A2ACE0BC2C2691C60 /* RAIntSignal.h in Headers */,
+				1C098157BCB1129534EE34B2 /* RAStringValue.h in Headers */,
+				1C09841998DEF2E0EB14337B /* React.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		228579111D039A22006E5C8F /* react */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 228579261D039A22006E5C8F /* Build configuration list for PBXNativeTarget "react" */;
+			buildPhases = (
+				2285790D1D039A22006E5C8F /* Sources */,
+				2285790E1D039A22006E5C8F /* Frameworks */,
+				2285790F1D039A22006E5C8F /* Headers */,
+				228579101D039A22006E5C8F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = react;
+			productName = react;
+			productReference = 228579121D039A22006E5C8F /* react.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		2285791B1D039A22006E5C8F /* reactTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 228579291D039A22006E5C8F /* Build configuration list for PBXNativeTarget "reactTests" */;
+			buildPhases = (
+				228579181D039A22006E5C8F /* Sources */,
+				228579191D039A22006E5C8F /* Frameworks */,
+				2285791A1D039A22006E5C8F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2285791F1D039A22006E5C8F /* PBXTargetDependency */,
+			);
+			name = reactTests;
+			productName = reactTests;
+			productReference = 2285791C1D039A22006E5C8F /* reactTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		228579091D039A22006E5C8F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Tim Conkling";
+				TargetAttributes = {
+					228579111D039A22006E5C8F = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					2285791B1D039A22006E5C8F = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 2285790C1D039A22006E5C8F /* Build configuration list for PBXProject "react" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 228579081D039A22006E5C8F;
+			productRefGroup = 228579131D039A22006E5C8F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				228579111D039A22006E5C8F /* react */,
+				2285791B1D039A22006E5C8F /* reactTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		228579101D039A22006E5C8F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2285791A1D039A22006E5C8F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2285790D1D039A22006E5C8F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C0989CB222C44DA093A622A /* RADoubleSignal.m in Sources */,
+				1C0984FDA21FC73C2EE7DCA1 /* RAReactor.m in Sources */,
+				1C098EDBF54448E410BFB693 /* RAConnection.m in Sources */,
+				1C098DE98826B6DEE5FECC15 /* RAIntReactor.m in Sources */,
+				1C0989B3DD244C7D78A68ED5 /* RABoolReactor.m in Sources */,
+				1C098D806CC1E6162896C1E4 /* RAFloatReactor.m in Sources */,
+				1C0982060EE24A3995BF944F /* RADoubleReactor.m in Sources */,
+				1C098FD6210663F589391BC0 /* RAObjectReactor.m in Sources */,
+				1C098E22EF558918671DC043 /* RAStringReactor.m in Sources */,
+				1C0986300BB4F42D714469EA /* RAConnectionGroup.m in Sources */,
+				1C09871991D78048F66C1CCD /* RAFloatSignal.m in Sources */,
+				1C098B8E07069DAF010DACCE /* RATry.mm in Sources */,
+				1C0989B7BA567274F171ED0D /* RABoolSignal.m in Sources */,
+				1C098E0D0057133ACC87BD2F /* RAStringValue.m in Sources */,
+				1C0986D7781C53D46E22BB0F /* RADoubleValue.m in Sources */,
+				1C0985676EAB29AE383FE06D /* RAFloatValue.m in Sources */,
+				1C09857838C625D0EACA1EFB /* RAObjectValue.m in Sources */,
+				1C098455432D117ED7EFDC2E /* RAUnitSignal.m in Sources */,
+				1C098C1A58561FEE20C6E53A /* RAIntSignal.m in Sources */,
+				1C098FE028C47ADD48703D75 /* RAStringSignal.m in Sources */,
+				1C098233292B3065AF6E7259 /* RAIntValue.m in Sources */,
+				1C0983F488A1356ACF9494D9 /* RAFuture.mm in Sources */,
+				1C0988503611F1CDD053B656 /* RAObjectSignal.m in Sources */,
+				1C0987AB3FEB586600A75ED9 /* RABoolValue.m in Sources */,
+				1C09880A29FB65A73102AB14 /* RAPromise.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		228579181D039A22006E5C8F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C0988C2A0458562FAB9BBA0 /* Counter.mm in Sources */,
+				1C0980F19C31DD789B55407E /* RAFutureTest.mm in Sources */,
+				1C0987DED86BD42F0D52FBAD /* RASignalTest.m in Sources */,
+				1C098C0AC677479923A50BC2 /* RAUnitSignalTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2285791F1D039A22006E5C8F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 228579111D039A22006E5C8F /* react */;
+			targetProxy = 2285791E1D039A22006E5C8F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		228579241D039A22006E5C8F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		228579251D039A22006E5C8F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		228579271D039A22006E5C8F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = react/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = timconkling.react;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		228579281D039A22006E5C8F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = react/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = timconkling.react;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		2285792A1D039A22006E5C8F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = reactTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = timconkling.reactTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		2285792B1D039A22006E5C8F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = reactTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = timconkling.reactTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2285790C1D039A22006E5C8F /* Build configuration list for PBXProject "react" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				228579241D039A22006E5C8F /* Debug */,
+				228579251D039A22006E5C8F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		228579261D039A22006E5C8F /* Build configuration list for PBXNativeTarget "react" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				228579271D039A22006E5C8F /* Debug */,
+				228579281D039A22006E5C8F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		228579291D039A22006E5C8F /* Build configuration list for PBXNativeTarget "reactTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2285792A1D039A22006E5C8F /* Debug */,
+				2285792B1D039A22006E5C8F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 228579091D039A22006E5C8F /* Project object */;
+}
