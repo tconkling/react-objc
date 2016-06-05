@@ -34,26 +34,26 @@
 }
 
 - (void (^)(RATry *))completer {
-    __weak RAPromise *weakSelf = self;
+    // Do not weakify our self pointer - we need this block to retain ourselves.
+    // (There is no leak here - we're not holding a reference to this block.)
     return [^(RATry *result) {
-        RAPromise *strongSelf = weakSelf;
-        [strongSelf completeWithResult:result];
+        [self completeWithResult:result];
     } copy];
 }
 
 - (void (^)(id))succeeder {
-    __weak RAPromise *weakSelf = self;
+    // Do not weakify our self pointer - we need this block to retain ourselves.
+    // (There is no leak here - we're not holding a reference to this block.)
     return [^(id value) {
-        RAPromise *strongSelf = weakSelf;
-        [strongSelf succeedWithValue:value];
+        [self succeedWithValue:value];
     } copy];
 }
 
 - (void (^)(id))failer {
-    __weak RAPromise *weakSelf = self;
+    // Do not weakify our self pointer - we need this block to retain ourselves.
+    // (There is no leak here - we're not holding a reference to this block.)
     return [^(id cause) {
-        RAPromise *strongSelf = weakSelf;
-        [strongSelf failWithCause:cause];
+        [self failWithCause:cause];
     } copy];
 }
 
