@@ -93,8 +93,10 @@ static void insertConn (RAConnection *conn,  RAConnection *head) {
             conn->reactor = nil;
 
             if (self.isEmitting) {
+                __weak typeof(self) weakSelf = self;
                 [_pendingActions insertAction:^{
-                    [self removeConn:conn];
+                    typeof(self) strongSelf = weakSelf;
+                    [strongSelf removeConn:conn];
                 }];
             } else {
                 [self removeConn:conn];
@@ -110,8 +112,10 @@ static void insertConn (RAConnection *conn,  RAConnection *head) {
         }
 
         if (self.isEmitting) {
+            __weak typeof(self) weakSelf = self;
             [_pendingActions insertAction:^{
-                self->_listeners = nil;
+                typeof(self) strongSelf = weakSelf;
+                strongSelf->_listeners = nil;
             }];
         } else {
             _listeners = nil;
@@ -134,10 +138,12 @@ static void insertConn (RAConnection *conn,  RAConnection *head) {
 - (RAConnection *)addConnection:(RAConnection *)connection {
     @synchronized (self) {
         if (self.isEmitting) {
+            __weak typeof(self) weakSelf = self;
             [_pendingActions insertAction:^{
+                typeof(self) strongSelf = weakSelf;
                 // ensure the connection hasn't already been disconnected
                 if (RA_IS_CONNECTED(connection)) {
-                    [self insertConn:connection];
+                    [strongSelf insertConn:connection];
                 }
             }];
         } else {
