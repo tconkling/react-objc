@@ -22,6 +22,9 @@
 /** Causes this promise to be completed with 'result'. */
 - (void)completeWithResult:(RATry *)result;
 
+/** Causes this promise to be completed successfully with a nil value. */
+- (void)succeed;
+
 /** Causes this promise to be completed successfully with 'value'. */
 - (void)succeedWithValue:(id)value;
 

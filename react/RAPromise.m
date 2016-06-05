@@ -25,6 +25,10 @@
     }
 }
 
+- (void)succeed {
+    return [self succeedWithValue:nil];
+}
+
 - (void)succeedWithValue:(id)value {
     [self completeWithResult:[RATry success:value]];
 }
