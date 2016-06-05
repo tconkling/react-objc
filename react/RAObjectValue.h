@@ -2,7 +2,7 @@
 // react-objc - a library for functional-reactive-like programming
 // https://github.com/tconkling/react-objc/blob/master/LICENSE
 
-#import "internal/RAObjectReactor.h"
+#import "RAObjectReactor.h"
 
 @interface RAObjectValue : RAObjectReactor {
 @protected
