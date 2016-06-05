@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "ReactObjC"
-  s.version      = "0.1.0"
+  s.version      = "0.2.0"
   s.summary      = "Signals, Reactive Values, Futures, and Promises for Objective-C"
 
   s.description  =
@@ -17,6 +17,7 @@ Pod::Spec.new do |s|
   s.social_media_url   = "https://twitter.com/timconkling"
 
   s.ios.deployment_target = "5.0"
+  s.osx.deployment_target = '10.7'
 
   s.source       = { :git => "https://github.com/tconkling/react-objc.git", :tag => "#{s.version}" }
 
