@@ -7,11 +7,18 @@
 #import "RAConnection.h"
 #import "RAUnitSignal.h"
 #import "RAObjectSignal.h"
+#import "Counter.h"
 
 @interface RASignalTest : XCTestCase
 @end
 
 @implementation RASignalTest
+
++ (void (^)(id))require:(id)reqValue {
+    return ^(id value) {
+        XCTAssertEqualObjects(reqValue, value);
+    };
+}
 
 - (void)testEmission {
     RAUnitSignal *sig = [[RAUnitSignal alloc] init];
@@ -121,6 +128,27 @@
     }];
     [sig emitEvent:@"Hello"];
     XCTAssertEqual(x, 2);
+}
+
+- (void)testMappedSignal {
+    RAObjectSignal *signal = [[RAObjectSignal alloc] init];
+    RAObjectSignal *mapped = [signal map:^id(id value) {
+        return [NSString stringWithFormat:@"%@", value];
+    }];
+
+    Counter *counter = [[Counter alloc] init];
+    RAConnection *c1 = [mapped connect:counter.triggerer];
+    RAConnection *c2 = [mapped connect:[RASignalTest require:@"15"]];
+
+    [signal emitEvent:@15];
+    XCTAssertEqual(1, counter.count);
+    [signal emitEvent:@15];
+    XCTAssertEqual(2, counter.count);
+
+    [c1 disconnect];
+    XCTAssert(signal.hasConnections);
+    [c2 disconnect];
+    XCTAssertFalse(signal.hasConnections);
 }
 
 @end
