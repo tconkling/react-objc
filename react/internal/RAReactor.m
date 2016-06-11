@@ -97,9 +97,11 @@ static void insertConn (RAConnection *conn,  RAConnection *head) {
                 [_pendingActions insertAction:^{
                     typeof(self) strongSelf = weakSelf;
                     [strongSelf removeConn:conn];
+                    [strongSelf connectionRemoved];
                 }];
             } else {
                 [self removeConn:conn];
+                [self connectionRemoved];
             }
         }
     }
@@ -115,10 +117,16 @@ static void insertConn (RAConnection *conn,  RAConnection *head) {
             __weak typeof(self) weakSelf = self;
             [_pendingActions insertAction:^{
                 typeof(self) strongSelf = weakSelf;
-                strongSelf->_listeners = nil;
+                if (strongSelf->_listeners != nil) {
+                    strongSelf->_listeners = nil;
+                    [strongSelf connectionRemoved];
+                }
             }];
         } else {
-            _listeners = nil;
+            if (_listeners != nil) {
+                _listeners = nil;
+                [self connectionRemoved];
+            }
         }
     }
 }
@@ -144,10 +152,12 @@ static void insertConn (RAConnection *conn,  RAConnection *head) {
                 // ensure the connection hasn't already been disconnected
                 if (RA_IS_CONNECTED(connection)) {
                     [strongSelf insertConn:connection];
+                    [strongSelf connectionAdded];
                 }
             }];
         } else {
             [self insertConn:connection];
+            [self connectionAdded];
         }
 
         return connection;
@@ -171,6 +181,12 @@ static void insertConn (RAConnection *conn,  RAConnection *head) {
         }
         _pendingActions = nil;
     }
+}
+
+- (void)connectionAdded {
+}
+
+- (void)connectionRemoved {
 }
 
 @end
