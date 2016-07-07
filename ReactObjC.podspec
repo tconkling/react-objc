@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "ReactObjC"
-  s.version      = "0.5.0"
+  s.version      = "0.5.1"
   s.summary      = "Signals, Reactive Values, Futures, and Promises for Objective-C"
 
   s.description  =
