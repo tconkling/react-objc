@@ -16,7 +16,8 @@
 
 /**
  * Creates a failed try.
- * 'cause' can be an NSError, NSException, or NSString, and will be converted to an NSError.
+ * 'cause' can be an NSError, NSException, or NSString.
+ * (It will be converted to an NSException if the error is rethrown.)
  */
 + (RATry *)failure:(id)cause;
 

@@ -5,6 +5,7 @@
 #import "RAFuture.h"
 #import "Counter.h"
 #import "RAPromise.h"
+#import "RAMultiFailureError.h"
 
 @interface FutureCounter : NSObject
 @property (nonatomic) Counter *successes;
@@ -248,6 +249,89 @@ static NSException * CreateException (NSString *description) {
         XCTAssertFalse(innerFailureSuccess.hasConnections);
         XCTAssertFalse(innerFailureFailure.hasConnections);
     }
+}
+
+- (void)testSequenceImmediate {
+    FutureCounter *counter = [FutureCounter create];
+
+    RAFuture *success1 = [RAFuture successWithValue:@"Yay 1!"];
+    RAFuture *success2 = [RAFuture successWithValue:@"Yay 2!"];
+
+    RAFuture *failure1 = [RAFuture failureWithCause:@"Boo 1!"];
+    RAFuture *failure2 = [RAFuture failureWithCause:@"Boo 2!"];
+
+    RAFuture *sucseq = [RAFuture sequence:@[success1, success2]];
+    [counter bind:sucseq];
+    [sucseq onSuccess:^(id results) {
+        XCTAssertEqualObjects((@[@"Yay 1!", @"Yay 2!"]), results);
+    }];
+    CHECK_FCOUNTER(counter, @"immediate seq success/success", 1, 0, 1);
+
+    [counter bind:[RAFuture sequence:@[success1, failure1]]];
+    CHECK_FCOUNTER(counter, @"immediate seq success/failure", 0, 1, 1);
+
+    [counter bind:[RAFuture sequence:@[failure1, success2]]];
+    CHECK_FCOUNTER(counter, @"immediate seq failure/success", 0, 1, 1);
+
+    [counter bind:[RAFuture sequence:@[failure1, failure2]]];
+    CHECK_FCOUNTER(counter, @"immediate seq failure/failure", 0, 1, 1);
+}
+
+- (void)testSequenceDeferred {
+    FutureCounter *counter = [FutureCounter create];
+
+    RAPromise *success1 = [RAPromise create];
+    RAPromise *success2 = [RAPromise create];
+    RAPromise *failure1 = [RAPromise create];
+    RAPromise *failure2 = [RAPromise create];
+
+    RAFuture *suc2seq = [RAFuture sequence:@[success1, success2]];
+    [counter bind:suc2seq];
+    [suc2seq onSuccess:^(id results) {
+        XCTAssertEqualObjects((@[@"Yay 1!", @"Yay 2!"]), results);
+    }];
+    CHECK_FCOUNTER(counter, @"before seq succeed/succeed", 0, 0, 0);
+    [success1 succeedWithValue:@"Yay 1!"];
+    [success2 succeedWithValue:@"Yay 2!"];
+    CHECK_FCOUNTER(counter, @"after seq succeed/succeed", 1, 0, 1);
+
+    RAFuture *sucfailseq = [RAFuture sequence:@[success1, failure1]];
+    [sucfailseq onFailure:^(id cause) {
+        XCTAssert([cause isKindOfClass:[RAMultiFailureError class]]);
+        RAMultiFailureError *err = (RAMultiFailureError *)cause;
+        XCTAssertEqualObjects(@"1 failures: Boo 1!", err.description);
+    }];
+    [counter bind:sucfailseq];
+    CHECK_FCOUNTER(counter, @"before seq succeed/fail", 0, 0, 0);
+    [failure1 failWithCause:@"Boo 1!"];
+    CHECK_FCOUNTER(counter, @"after seq succeed/fail", 0, 1, 1);
+
+    RAFuture *failsucseq = [RAFuture sequence:@[failure1, success2]];
+    [failsucseq onFailure:^(id cause) {
+        XCTAssert([cause isKindOfClass:[RAMultiFailureError class]]);
+        RAMultiFailureError *err = (RAMultiFailureError *)cause;
+        XCTAssertEqualObjects(@"1 failures: Boo 1!", err.description);
+    }];
+    [counter bind:failsucseq];
+    CHECK_FCOUNTER(counter, @"after seq fail/succeed", 0, 1, 1);
+
+    RAFuture *fail2seq = [RAFuture sequence:@[failure1, failure2]];
+    [fail2seq onFailure:^(id cause) {
+        XCTAssert([cause isKindOfClass:[RAMultiFailureError class]]);
+        RAMultiFailureError *err = (RAMultiFailureError *)cause;
+        XCTAssertEqualObjects(@"2 failures: Boo 1!, Boo 2!", err.description);
+    }];
+    [counter bind:fail2seq];
+    CHECK_FCOUNTER(counter, @"before seq fail/fail", 0, 0, 0);
+    [failure2 failWithCause:@"Boo 2!"];
+    CHECK_FCOUNTER(counter, @"after seq fail/fail", 0, 1, 1);
+}
+
+- (void)testSequenceEmpty {
+    FutureCounter *counter = [FutureCounter create];
+    RAFuture *seq = [RAFuture sequence:@[]];
+    [counter bind:seq];
+    CHECK_FCOUNTER(counter, @"sequence empty list succeed", 1, 0, 1);
 }
 
 @end

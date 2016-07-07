@@ -9,8 +9,10 @@
 /* Begin PBXBuildFile section */
 		1C098020C61DB1A28CC7A2E2 /* RAObjectSignal.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C0987E1336062AE559AB81B /* RAObjectSignal.h */; };
 		1C098058DBDF1715610FEAEE /* RAFloatValue.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C098F10B509C953DD8B8D36 /* RAFloatValue.h */; };
+		1C0980A5FFB97A59E2422051 /* RAMultiFailureError.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C098314C2C24407233B7974 /* RAMultiFailureError.m */; };
 		1C0980F19C31DD789B55407E /* RAFutureTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C098B33C6B2CA6312E84104 /* RAFutureTest.m */; };
 		1C09811C22C88AAF1C6AB979 /* RAIntReactor.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C0983CD429404A2B4B6476F /* RAIntReactor.h */; };
+		1C098124D65FC48E435171D7 /* RAMultiFailureError.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C09857649B21775429BC509 /* RAMultiFailureError.h */; };
 		1C098128BB6902458BB3A852 /* RAUnitSignal.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C098A66CF2EB8E19FD376D4 /* RAUnitSignal.h */; };
 		1C09813AAD37EB8EBD3FBFE6 /* RAIntReactor+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C0983CE7C1FEF0203E206E1 /* RAIntReactor+Protected.h */; };
 		1C098157BCB1129534EE34B2 /* RAStringValue.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C098318BFFDDB21FD9EC18D /* RAStringValue.h */; };
@@ -49,6 +51,7 @@
 		1C0988C475CC66112901F4A4 /* RADoubleValue.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C098881BF4145C278985777 /* RADoubleValue.h */; };
 		1C0988F447D91F47B7AA9B74 /* RABoolReactor.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C098A82DE2D56D0F0EFEED7 /* RABoolReactor.h */; };
 		1C098986F865500A6D49842A /* RAStringSignal.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C098FB51A0116DC922BEAC3 /* RAStringSignal.h */; };
+		1C09898DA4A4115D511C51EE /* RAMultiFailureError.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C09857649B21775429BC509 /* RAMultiFailureError.h */; };
 		1C0989B3DD244C7D78A68ED5 /* RABoolReactor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C09830A9196F2E86DCD0C1C /* RABoolReactor.m */; };
 		1C0989B7BA567274F171ED0D /* RABoolSignal.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0987658A26F112B3440108 /* RABoolSignal.m */; };
 		1C0989C5CF14C2C95CCEC6C1 /* RABoolSignal.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C098F5DF17A78D489BF6381 /* RABoolSignal.h */; };
@@ -56,6 +59,7 @@
 		1C0989EC20F9EB75DA07F10D /* RAFloatSignal.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C098ABF35C42EB941EE8E48 /* RAFloatSignal.h */; };
 		1C098AA7868FB2314F2F0C42 /* RAReactor.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C0980EBDCD133804201FC5A /* RAReactor.h */; };
 		1C098AAD2CE5DD9D4D064147 /* RAObjectValue.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C0982B67DFF41EF7ADEAA35 /* RAObjectValue.h */; };
+		1C098B042723A8DDF7BB0C6D /* RAMultiFailureError.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C098314C2C24407233B7974 /* RAMultiFailureError.m */; };
 		1C098B8E07069DAF010DACCE /* RATry.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0983442A7754CDC1589DB2 /* RATry.m */; };
 		1C098C1A58561FEE20C6E53A /* RAIntSignal.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0983BE7CB8FDE29CAE946D /* RAIntSignal.m */; };
 		1C098C4C06D748249D4BC042 /* RADoubleReactor+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C098C5933C3807FB0FEABBB /* RADoubleReactor+Protected.h */; };
@@ -172,6 +176,7 @@
 		1C0982B67DFF41EF7ADEAA35 /* RAObjectValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAObjectValue.h; sourceTree = "<group>"; };
 		1C0982F3496F26C4405F647E /* RADoubleSignal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RADoubleSignal.m; sourceTree = "<group>"; };
 		1C09830A9196F2E86DCD0C1C /* RABoolReactor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RABoolReactor.m; sourceTree = "<group>"; };
+		1C098314C2C24407233B7974 /* RAMultiFailureError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAMultiFailureError.m; sourceTree = "<group>"; };
 		1C098318BFFDDB21FD9EC18D /* RAStringValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAStringValue.h; sourceTree = "<group>"; };
 		1C0983442A7754CDC1589DB2 /* RATry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RATry.m; sourceTree = "<group>"; };
 		1C09834528FC43A6028D996F /* RAFloatReactor+Protected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RAFloatReactor+Protected.h"; sourceTree = "<group>"; };
@@ -187,6 +192,7 @@
 		1C09844C9D64177C45D200C3 /* RAObjectReactor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAObjectReactor.m; sourceTree = "<group>"; };
 		1C0984A8E6260E43BE79B334 /* RASignalTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RASignalTest.m; sourceTree = "<group>"; };
 		1C098514F4B77181657AD140 /* RAStringSignal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAStringSignal.m; sourceTree = "<group>"; };
+		1C09857649B21775429BC509 /* RAMultiFailureError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAMultiFailureError.h; sourceTree = "<group>"; };
 		1C0985880F816D01F039B94D /* RADefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RADefs.h; sourceTree = "<group>"; };
 		1C0985AD78CCE19CD4AF7B4B /* RAObjectReactor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAObjectReactor.h; sourceTree = "<group>"; };
 		1C0985EA2DED045BAA6F30F6 /* RAStringReactor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAStringReactor.h; sourceTree = "<group>"; };
@@ -359,6 +365,8 @@
 				1C09841833711EA15E9C2BE8 /* React.h */,
 				1C0983AC30356790C74AFDC0 /* RAMappedSignal.m */,
 				1C0989B4A28A40977E8648BE /* RAMappedSignal.h */,
+				1C098314C2C24407233B7974 /* RAMultiFailureError.m */,
+				1C09857649B21775429BC509 /* RAMultiFailureError.h */,
 			);
 			path = react;
 			sourceTree = "<group>";
@@ -418,6 +426,7 @@
 				1C098157BCB1129534EE34B2 /* RAStringValue.h in Headers */,
 				1C09841998DEF2E0EB14337B /* React.h in Headers */,
 				1C09820A7DA0CE4A2F969CB2 /* RAMappedSignal.h in Headers */,
+				1C09898DA4A4115D511C51EE /* RAMultiFailureError.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,6 +470,7 @@
 				2285795F1D049DBE006E5C8F /* RAFloatReactor+Protected.h in Headers */,
 				228579531D049DBE006E5C8F /* RAFloatReactor.h in Headers */,
 				1C09889FBAFB6B7750E64FF0 /* RAMappedSignal.h in Headers */,
+				1C098124D65FC48E435171D7 /* RAMultiFailureError.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -644,6 +654,7 @@
 				1C0987AB3FEB586600A75ED9 /* RABoolValue.m in Sources */,
 				1C09880A29FB65A73102AB14 /* RAPromise.m in Sources */,
 				1C0988469A5138BEA7B20B7C /* RAMappedSignal.m in Sources */,
+				1C098B042723A8DDF7BB0C6D /* RAMultiFailureError.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -687,6 +698,7 @@
 				228579501D049DBE006E5C8F /* RAIntReactor.m in Sources */,
 				2285796E1D049DBE006E5C8F /* RAFloatValue.m in Sources */,
 				1C0987E3EF11CBC2F6EE6378 /* RAMappedSignal.m in Sources */,
+				1C0980A5FFB97A59E2422051 /* RAMultiFailureError.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -5,6 +5,60 @@
 #import "RATry.h"
 #import "RAObjectValue.h"
 #import "RAPromise.h"
+#import "RAMultiFailureError.h"
+
+@interface Sequencer : NSObject {
+    RAPromise *_promise;
+    NSMutableArray *_results;
+    NSUInteger _remaining;
+    RAMultiFailureError *_error;
+}
+
+@property (nonatomic, readonly) RAFuture *future;
+
+- (instancetype)initWithCount:(NSUInteger)count;
+- (void)setResult:(RATry *)result forIndex:(NSUInteger)idx;
+@end
+
+@implementation Sequencer
+
+@synthesize future = _promise;
+
+- (instancetype)initWithCount:(NSUInteger)count {
+    if ((self = [super init])) {
+        _remaining = count;
+        _promise = [RAPromise create];
+
+        _results = [NSMutableArray arrayWithCapacity:count];
+        for (NSUInteger ii = 0; ii < count; ++ii) {
+            [_results addObject:[NSNull null]];
+        }
+    }
+    return self;
+}
+
+- (void)setResult:(RATry *)result forIndex:(NSUInteger)idx {
+    @synchronized (self) {
+        if (result.isSuccess) {
+            _results[idx] = result.value;
+        } else {
+            if (_error == nil) {
+                _error = [[RAMultiFailureError alloc] init];
+            }
+            [_error addFailure:result.failure];
+        }
+
+        if (--_remaining == 0) {
+            if (_error != nil) {
+                [_promise failWithCause:_error];
+            } else {
+                [_promise succeedWithValue:_results];
+            }
+        }
+    }
+}
+
+@end
 
 @implementation RAFuture
 
@@ -24,6 +78,23 @@
     RAFuture *future = [[RAFuture alloc] init];
     future->_result.value = result;
     return future;
+}
+
++ (RAFuture *)sequence:(NSArray *)futures {
+    // if we're passed an empty list of futures, succeed immediately with an empty array
+    if (futures.count == 0) {
+        return [RAFuture successWithValue:[NSArray array]];
+    }
+
+    Sequencer *seq = [[Sequencer alloc] initWithCount:futures.count];
+    for (NSUInteger idx = 0; idx < futures.count; ++idx) {
+        RAFuture *thisFuture = futures[idx];
+        [thisFuture onComplete:^(RATry *result) {
+            [seq setResult:result forIndex:idx];
+        }];
+    }
+
+    return seq.future;
 }
 
 - (instancetype)init {

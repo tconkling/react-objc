@@ -17,3 +17,4 @@
 #import "RAUnitSignal.h"
 #import "RAFuture.h"
 #import "RAPromise.h"
+#import "RAMultiFailureError.h"

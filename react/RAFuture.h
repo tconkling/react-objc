@@ -32,6 +32,15 @@
 /** Returns a future with an already-computed result. */
 + (instancetype)futureWithResult:(RATry *)result;
 
+/**
+ * Returns a future containing an NSArray of all success results from {@code futures} if all of
+ * the futures complete successfully, or a MultiFailureError aggregating all
+ * failures, if any of the futures fails.
+ *
+ * <p>The result array is in {@code futures}' iteration order.</p>
+ */
++ (RAFuture *)sequence:(NSArray *)futures;
+
 /** Causes 'successHandler' to be notified if/when this future is completed with success. If it has
  * already succeeded, the handler will be notified immediately.
  * @return this future for chaining. */
