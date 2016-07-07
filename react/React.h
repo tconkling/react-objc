@@ -18,3 +18,5 @@
 #import "RAFuture.h"
 #import "RAPromise.h"
 #import "RAMultiFailureError.h"
+#import "RATry.h"
+#import "RAMappedSignal.h"
