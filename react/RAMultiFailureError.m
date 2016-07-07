@@ -45,7 +45,7 @@ static NSString *GetMessage (id failure) {
         [messages appendString:GetMessage(failure)];
     }
 
-    return [NSString stringWithFormat:@"%d failures: %@", _failures.count, messages];
+    return [NSString stringWithFormat:@"%lu failures: %@", (unsigned long)_failures.count, messages];
 }
 
 @end
