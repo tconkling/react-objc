@@ -2,10 +2,8 @@
 // react-objc
 
 #import <XCTest/XCTest.h>
-#import "RAFuture.h"
+#import "React.h"
 #import "Counter.h"
-#import "RAPromise.h"
-#import "RAMultiFailureError.h"
 
 @interface FutureCounter : NSObject
 @property (nonatomic) Counter *successes;
@@ -332,6 +330,27 @@ static NSException * CreateException (NSString *description) {
     RAFuture *seq = [RAFuture sequence:@[]];
     [counter bind:seq];
     CHECK_FCOUNTER(counter, @"sequence empty list succeed", 1, 0, 1);
+}
+
+- (void)testSequenceNil {
+    FutureCounter *counter = [FutureCounter create];
+    RAFuture *nilSuccess1 = [RAFuture success];
+    RAFuture *nilSuccess2 = [RAFuture success];
+    RAFuture *nilFailure1 = [RAFuture failure];
+    RAFuture *nilFailure2 = [RAFuture failure];
+
+    RAFuture *nilSucSeq = [RAFuture sequence:@[nilSuccess1, nilSuccess2]];
+    [nilSucSeq onComplete:^(RATry *result) {
+        XCTAssert(result.isSuccess);
+        XCTAssertEqualObjects(result.value, (@[[NSNull null], [NSNull null]]));
+    }];
+
+    RAFuture *nilFailSeq = [RAFuture sequence:@[nilFailure1, nilFailure2]];
+    [nilFailSeq onComplete:^(RATry *result) {
+        XCTAssert(result.isFailure);
+        RAMultiFailureError *err = (RAMultiFailureError *)result.failure;
+        XCTAssertEqualObjects(@"2 failures: null, null", err.description);
+    }];
 }
 
 @end

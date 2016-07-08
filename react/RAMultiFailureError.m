@@ -2,6 +2,7 @@
 // react
 
 #import "RAMultiFailureError.h"
+#import "RAUtil.h"
 
 @interface RAMultiFailureError () {
     NSMutableArray *_failures;
@@ -14,8 +15,10 @@ static NSString *GetMessage (id failure) {
         return [NSString stringWithFormat:@"%@: %@", exc.name, exc.reason];
     } else if ([failure isKindOfClass:[NSString class]]) {
         return failure;
+    } else if ([failure isKindOfClass:[NSNull class]] || failure == nil) {
+        return @"null";
     } else if ([failure isKindOfClass:[NSObject class]]) {
-        return ((NSObject *)failure).description;
+        return ((NSObject *) failure).description;
     } else {
         return @"Unknown error";
     }
@@ -33,7 +36,7 @@ static NSString *GetMessage (id failure) {
 }
 
 - (void)addFailure:(id)failure {
-    [_failures addObject:failure];
+    [_failures addObject:RANilToNSNull(failure)];
 }
 
 - (NSString *)description {

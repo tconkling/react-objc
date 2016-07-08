@@ -25,6 +25,7 @@
 		1C09841998DEF2E0EB14337B /* React.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C09841833711EA15E9C2BE8 /* React.h */; };
 		1C0984507B1893A68A5B4D70 /* RADoubleReactor.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C0987911246BA88EDB5673A /* RADoubleReactor.h */; };
 		1C098455432D117ED7EFDC2E /* RAUnitSignal.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C098FFC04A053B26D0DEC32 /* RAUnitSignal.m */; };
+		1C0984632E41028CEA23C974 /* RAUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C098ED620109B9D9668ABC0 /* RAUtil.h */; };
 		1C0984FDA21FC73C2EE7DCA1 /* RAReactor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0980527538611E5E10E06C /* RAReactor.m */; };
 		1C0985494AF4929169CFC3E3 /* RADoubleSignal.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C09813AA27F85A76C2BFB78 /* RADoubleSignal.h */; };
 		1C0985676EAB29AE383FE06D /* RAFloatValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C098C0D97291096510982FA /* RAFloatValue.m */; };
@@ -71,6 +72,7 @@
 		1C098E0D0057133ACC87BD2F /* RAStringValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0984173787716BA2F7A95C /* RAStringValue.m */; };
 		1C098E22EF558918671DC043 /* RAStringReactor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C098E6899C50062D6AC0AD3 /* RAStringReactor.m */; };
 		1C098E2A2ACE0BC2C2691C60 /* RAIntSignal.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C09880731D90E7D5057127D /* RAIntSignal.h */; };
+		1C098E6CDE9A49895BE2BE2E /* RAUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C098ED620109B9D9668ABC0 /* RAUtil.h */; };
 		1C098E8919A7BABB1D865C6B /* RAFloatReactor+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C09834528FC43A6028D996F /* RAFloatReactor+Protected.h */; };
 		1C098E8B10C4F602DD74BB02 /* RATry.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C098C5046A8E154ED28C027 /* RATry.h */; };
 		1C098EDBF54448E410BFB693 /* RAConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C098A85633B5E6A23F81D96 /* RAConnection.m */; };
@@ -226,6 +228,7 @@
 		1C098CDDF056FA6F74D4CD46 /* RABoolValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RABoolValue.h; sourceTree = "<group>"; };
 		1C098E6899C50062D6AC0AD3 /* RAStringReactor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAStringReactor.m; sourceTree = "<group>"; };
 		1C098E874E161ACD08186D39 /* RAObjectSignal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAObjectSignal.m; sourceTree = "<group>"; };
+		1C098ED620109B9D9668ABC0 /* RAUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAUtil.h; sourceTree = "<group>"; };
 		1C098F10B509C953DD8B8D36 /* RAFloatValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAFloatValue.h; sourceTree = "<group>"; };
 		1C098F29C7B94E1912E25B0C /* RADoubleReactor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RADoubleReactor.m; sourceTree = "<group>"; };
 		1C098F5DF17A78D489BF6381 /* RABoolSignal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RABoolSignal.h; sourceTree = "<group>"; };
@@ -298,6 +301,7 @@
 				1C098C5933C3807FB0FEABBB /* RADoubleReactor+Protected.h */,
 				1C09883EDA30980743C7A0FD /* RAObjectReactor+Protected.h */,
 				1C098A87024823FAE53E7E91 /* RAStringReactor+Protected.h */,
+				1C098ED620109B9D9668ABC0 /* RAUtil.h */,
 			);
 			path = internal;
 			sourceTree = "<group>";
@@ -427,6 +431,7 @@
 				1C09841998DEF2E0EB14337B /* React.h in Headers */,
 				1C09820A7DA0CE4A2F969CB2 /* RAMappedSignal.h in Headers */,
 				1C09898DA4A4115D511C51EE /* RAMultiFailureError.h in Headers */,
+				1C0984632E41028CEA23C974 /* RAUtil.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,6 +476,7 @@
 				228579531D049DBE006E5C8F /* RAFloatReactor.h in Headers */,
 				1C09889FBAFB6B7750E64FF0 /* RAMappedSignal.h in Headers */,
 				1C098124D65FC48E435171D7 /* RAMultiFailureError.h in Headers */,
+				1C098E6CDE9A49895BE2BE2E /* RAUtil.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

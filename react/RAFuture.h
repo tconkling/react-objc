@@ -29,6 +29,9 @@
 /** Returns a future with a pre-existing failure value. */
 + (instancetype)failureWithCause:(id)cause;
 
+/** Returns a future with a nil failure value. */
++ (instancetype)failure;
+
 /** Returns a future with an already-computed result. */
 + (instancetype)futureWithResult:(RATry *)result;
 

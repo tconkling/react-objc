@@ -6,6 +6,7 @@
 #import "RAObjectValue.h"
 #import "RAPromise.h"
 #import "RAMultiFailureError.h"
+#import "RAUtil.h"
 
 @interface Sequencer : NSObject {
     RAPromise *_promise;
@@ -40,7 +41,7 @@
 - (void)setResult:(RATry *)result forIndex:(NSUInteger)idx {
     @synchronized (self) {
         if (result.isSuccess) {
-            _results[idx] = result.value;
+            _results[idx] = RANilToNSNull(result.value);
         } else {
             if (_error == nil) {
                 _error = [[RAMultiFailureError alloc] init];
@@ -72,6 +73,10 @@
 
 + (instancetype)failureWithCause:(id)cause {
     return [RAFuture futureWithResult:[RATry failure:cause]];
+}
+
++ (instancetype)failure {
+    return [RAFuture futureWithResult:[RATry failure:nil]];
 }
 
 + (instancetype)futureWithResult:(RATry *)result {
