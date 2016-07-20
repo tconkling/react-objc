@@ -3,11 +3,12 @@
 // https://github.com/tconkling/react-objc/blob/master/LICENSE
 
 #import <Foundation/Foundation.h>
+#import "RACloseable.h"
 
 @class RAReactor;
 
 /** Manages the connection between a signal and a listener. */
-@interface RAConnection : NSObject {
+@interface RAConnection : NSObject <RACloseable> {
 @package
     BOOL oneShot;
     RAConnection *next;
@@ -33,6 +34,9 @@
  * Disconnects this connection from the signal. Subsequent emissions won't be passed on to the
  * listener.
  */
+- (void)close;
+
+/** Deprecated - use close instead. */
 - (void)disconnect;
 
 @end

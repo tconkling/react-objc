@@ -14,6 +14,10 @@
 }
 
 - (void)disconnect {
+    [self close];
+}
+
+- (void)close {
     [reactor disconnect:self];
 }
 

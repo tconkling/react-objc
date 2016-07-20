@@ -2,8 +2,9 @@
 // react-objc - a library for functional-reactive-like programming
 // https://github.com/tconkling/react-objc/blob/master/LICENSE
 
+#import "RACloseable.h"
+#import "RACloseableSet.h"
 #import "RAConnection.h"
-#import "RAConnectionGroup.h"
 #import "RABoolSignal.h"
 #import "RABoolValue.h"
 #import "RADoubleSignal.h"

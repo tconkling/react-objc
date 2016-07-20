@@ -51,4 +51,8 @@ static NSString *GetMessage (id failure) {
     return [NSString stringWithFormat:@"%lu failures: %@", (unsigned long)_failures.count, messages];
 }
 
+- (void)raise {
+    [NSException raise:@"RAMultiFailureError" format:@"%@", self.description];
+}
+
 @end

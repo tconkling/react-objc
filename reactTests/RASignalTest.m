@@ -3,7 +3,7 @@
 // https://github.com/tconkling/react-objc/blob/master/LICENSE
 
 #import <XCTest/XCTest.h>
-#import "RAConnectionGroup.h"
+#import "RACloseableSet.h"
 #import "RAConnection.h"
 #import "RAUnitSignal.h"
 #import "RAObjectSignal.h"
@@ -58,7 +58,7 @@
 }
 
 - (void)testGroup {
-    RAConnectionGroup *group = [[RAConnectionGroup alloc] init];
+    RACloseableSet *group = [[RACloseableSet alloc] init];
     RAUnitSignal *sig = [[RAUnitSignal alloc] init];
     __block int x = 0;
     [group add:[sig connectUnit:^{
@@ -70,7 +70,7 @@
     [sig connectUnit:^{ x++; }];
     [sig emit];
     XCTAssertEqual(x, 3);
-    [group disconnectAll];
+    [group close];
     [sig emit];
     XCTAssertEqual(x, 4);
 }

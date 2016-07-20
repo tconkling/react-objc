@@ -15,4 +15,7 @@
 /** Returns a string with all of the failure explanations concatenated together. */
 - (NSString *)description;
 
+/** Raises an NSException for the multi-failure error. */
+- (void)raise;
+
 @end
